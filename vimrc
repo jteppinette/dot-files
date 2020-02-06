@@ -30,7 +30,6 @@ filetype indent on
 runtime macros/matchit.vim
 
 syntax on
-colorscheme nord
 " }}}
 
 " options & variables {{{
@@ -164,3 +163,7 @@ augroup markdown
 	autocmd FileType markdown nnoremap <buffer> <localleader>d :MarkdownPreview<CR>
 	autocmd FileType markdown nnoremap <buffer> <localleader>s :MarkdownPreviewStop<CR>
 augroup END " }}}
+
+" colorscheme {{{
+colorscheme nord
+" }}}
