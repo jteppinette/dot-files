@@ -1,8 +1,18 @@
 " plugins {{{
 if empty(glob('~/.vim/autoload/plug.vim'))
 	silent !curl -f -L -o ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+	if filereadable($MYVIMRC)
+		let vimrc_path = $MYVIMRC
+	elseif filereadable($VIM . '/vimrc')
+		let vimrc_path = $VIM . '/vimrc'
+	endif
+
+	autocmd VimEnter * PlugInstall --sync | exec 'source ' . vimrc_path
 endif
+
+function! PlugLoaded(name)
+    return (has_key(g:plugs, a:name) && isdirectory(g:plugs[a:name].dir))
+endfunction
 
 call plug#begin()
 Plug 'nvie/vim-flake8'
@@ -29,6 +39,9 @@ filetype indent on
 
 runtime macros/matchit.vim
 
+if PlugLoaded('nord-vim')
+	colorscheme nord
+endif
 syntax on
 " }}}
 
@@ -164,6 +177,3 @@ augroup markdown
 	autocmd FileType markdown nnoremap <buffer> <localleader>s :MarkdownPreviewStop<CR>
 augroup END " }}}
 
-" colorscheme {{{
-colorscheme nord
-" }}}
