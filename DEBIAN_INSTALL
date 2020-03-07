@@ -52,6 +52,7 @@ Apt Packages
   - s-tui
   - alsa-utils
   - tmux
+  - libreoffice
 
 Pip Packages
 ============
