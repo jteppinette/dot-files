@@ -53,6 +53,9 @@ Apt Packages
   - alsa-utils
   - tmux
   - libreoffice
+  - xfonts-terminus
+  - conky
+  - mpc
 
 Pip Packages
 ============

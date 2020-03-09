@@ -10,7 +10,8 @@ mkdir -p $CONFIG/bspwm \
 	 $CONFIG/mpd \
 	 $CONFIG/sxhkd \
 	 $CONFIG/ncmpcpp \
-	 $CONFIG/neofetch
+	 $CONFIG/neofetch \
+	 $CONFIG/lemonbar
 
 # Apply symlinks
 ln -sf $DIR/bashrc		$HOME/.bashrc
@@ -27,6 +28,7 @@ ln -sf $DIR/ncmpcpp.config	$CONFIG/ncmpcpp/config
 ln -sf $DIR/ncmpcpp.bindings	$CONFIG/ncmpcpp/bindings
 ln -sf $DIR/neofetch.conf	$CONFIG/neofetch/config.conf
 ln -sf $DIR/sxhkdrc		$CONFIG/sxhkd/sxhkdrc
+ln -sf $DIR/lemonbarrc		$CONFIG/lemonbar/lemonbarrc
 
 # Install tmux plugin manager
 if [ ! -d "$HOME/.tmux/plugins" ]; then
