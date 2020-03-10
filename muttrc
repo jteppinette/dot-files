@@ -20,11 +20,11 @@ set postponed = "=Drafts"
 set trash = "=Trash"
 
 # Macros
-macro index "G" <imap-fetch-mail>
+macro index G <imap-fetch-mail>
+macro index ,a "<save-message>=Archive<enter><enter-command>echo 'Saved to Archive'<enter>"
 
 # System
 set imap_check_subscribed = yes
-set tmpdir = "~/.tmp"
 set sidebar_visible = yes
 set mail_check_stats = yes
 set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
