@@ -5,13 +5,9 @@
 #######
 
 RED="#BF616A"
-ORANGE="#D08770"
 YELLOW="#EBCB8B"
 GREEN="#A3BE8C"
-PURPLE="#B48EAD"
-BLUE="#5E81AC"
-LIGHT="#D8DEE9"
-DARK="#2E3440"
+BLUE="#88c0d0"
 
 ###########################
 # Data generation functions
@@ -80,20 +76,20 @@ format() {
 		BATTERY_COLOR=$BLUE
 	fi
 
-	echo -n "%{l}"
-	echo -n "%{B$BLUE} Desktop $(desktop)  %{B-}"
-	echo -n "%{B$GREEN} Volume $(volume)  %{B-}"
+	echo -n "%{l} "
+	echo -n "Desktop $(desktop) | "
+	echo -n "Volume $(volume) "
 	
 	SONG_VALUE=$(song)
 	if [ "$SONG_VALUE" != "" ]; then
-		echo -n "%{B$PURPLE}%{F$LIGHT} $SONG_VALUE %{F-}%{B-}"
+		echo -n "| %{U$YELLOW}%{+u} $SONG_VALUE %{-u} %{U-}"
 	fi
 
 	echo -n "%{c}"
 	echo -n "$(clock)"
 	echo -n "%{r}"
-	echo -n "%{B$NETWORK_COLOR} $NETWORK_VALUE %{B-}"
-	echo -n "%{B$BATTERY_COLOR} Battery $BATTERY_VALUE% %{B-}"
+	echo -n "%{U$NETWORK_COLOR}%{+u} $NETWORK_VALUE %{-u} %{U-}| "
+	echo -n "%{U$BATTERY_COLOR}%{+u} Battery $BATTERY_VALUE% %{-u} %{U-}"
 }
 
 # Print the formatted string to stdout every second

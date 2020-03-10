@@ -22,4 +22,4 @@ gpgconf --launch gpg-agent
 feh --bg-fill $HOME/pictures/wallpapers/journey-man.jpg
 
 # Lemonbar
-$HOME/.config/lemonbar/lemonbarrc | lemonbar -f "-*-terminus-*" -g x24 -B "#2E3440" -F "#D8DEE9"
+$HOME/.config/lemonbar/lemonbarrc | lemonbar -u 4 -f "-*-terminus-*" -g x24 -B "#2E3440" -F "#D8DEE9"
