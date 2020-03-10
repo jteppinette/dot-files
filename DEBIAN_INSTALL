@@ -56,6 +56,10 @@ Apt Packages
   - xfonts-terminus
   - conky
   - mpc
+  - webext-browserpass
+  - webext-https-everywhere
+  - webext-noscript
+  - webext-privacy-badger
 
 Pip Packages
 ============
