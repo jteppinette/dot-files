@@ -78,7 +78,7 @@ format() {
 
 	echo -n "%{l} "
 	echo -n "Desktop $(desktop) | "
-	echo -n "Volume [$(volume)] "
+	echo -n "%{A:amixer set Master toggle:}Volume [$(volume)]%{A} "
 	
 	SONG_VALUE=$(song)
 	if [ "$SONG_VALUE" != "" ]; then
