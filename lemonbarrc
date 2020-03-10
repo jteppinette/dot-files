@@ -43,7 +43,7 @@ clock() {
 volume() {
 	PARSE='
 	/%/ {
-		if ($7 == "off") { print "mute" }
+		if ($7 == "off") { print "MUTED" }
 		else { print $2"%" }
 	}'
 	echo -n $(amixer get Master | awk -F"[]%[]" "$PARSE")
@@ -78,7 +78,7 @@ format() {
 
 	echo -n "%{l} "
 	echo -n "Desktop $(desktop) | "
-	echo -n "Volume $(volume) "
+	echo -n "Volume [$(volume)] "
 	
 	SONG_VALUE=$(song)
 	if [ "$SONG_VALUE" != "" ]; then
