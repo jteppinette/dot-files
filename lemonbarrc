@@ -19,10 +19,12 @@ network() {
 	if [ $RC -ne 0 ]; then
 		echo -n "Not Connected"
 	else
-		if [ "$(echo $ROUTE | grep -Po 'dev \K\w')" = "e" ]; then
+		DEVICE=$(echo $ROUTE | grep -Po "dev \K\w+")
+		TYPE=$(nmcli connection show | grep $DEVICE | awk '{print $3}')
+		if [ "$TYPE" = "ethernet" ]; then
 	       		echo -n "Wired"
-		else
-			echo -n $(nmcli connection show | grep wifi | cut -d ' ' -f 1)
+		elif [ "$TYPE" = "wifi" ]; then
+			echo -n $(nmcli connection show | grep $DEVICE | awk '{print $1}')
 		fi
 	fi
 }
