@@ -60,6 +60,8 @@ Apt Packages
   - webext-https-everywhere
   - webext-noscript
   - webext-privacy-badger
+  - okular
+  - mutt
 
 Pip Packages
 ============
