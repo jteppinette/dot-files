@@ -11,7 +11,8 @@ mkdir -p $CONFIG/bspwm \
 	 $CONFIG/sxhkd \
 	 $CONFIG/ncmpcpp \
 	 $CONFIG/neofetch \
-	 $CONFIG/lemonbar
+	 $CONFIG/lemonbar \
+	 $CONFIG/rofi
 
 # Create home directories
 mkdir -p $HOME/.mutt
@@ -33,6 +34,7 @@ ln -sf $DIR/ncmpcpp.bindings	$CONFIG/ncmpcpp/bindings
 ln -sf $DIR/neofetch.conf	$CONFIG/neofetch/config.conf
 ln -sf $DIR/sxhkdrc		$CONFIG/sxhkd/sxhkdrc
 ln -sf $DIR/lemonbarrc		$CONFIG/lemonbar/lemonbarrc
+ln -sf $DIR/rofi.config		$CONFIG/rofi/config
 
 # Install tmux plugin manager
 if [ ! -d "$HOME/.tmux/plugins" ]; then
