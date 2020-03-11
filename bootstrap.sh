@@ -3,6 +3,10 @@
 SCRIPT=$(readlink -f "$0")
 DIR=$(dirname "$SCRIPT")
 CONFIG=$HOME/.config
+CACHE=$HOME/.cache
+
+# Create .cache directories
+mkdir -p $CACHE/mutt
 
 # Create .config directories
 mkdir -p $CONFIG/bspwm \

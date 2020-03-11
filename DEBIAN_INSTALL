@@ -63,6 +63,7 @@ Apt Packages
   - okular
   - mutt
   - inkscape [inkscape-tutorials]
+  - w3m
 
 Pip Packages
 ============

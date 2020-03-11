@@ -22,13 +22,17 @@ set trash = "=Trash"
 # Macros
 macro index G <imap-fetch-mail>
 macro index ,a "<save-message>=Archive<enter><enter-command>echo 'Saved to Archive'<enter>"
+macro attach V "<pipe-entry>iconv -c --to-code=UTF8 > ~/.cache/mutt/mail.html<enter><shell-escape>x-www-browser ~/.cache/mutt/mail.html<enter>"
 
 # System
 set imap_check_subscribed = yes
 set sidebar_visible = yes
 set mail_check_stats = yes
 set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
-set header_cache = "~/.cache/mutt"
+set header_cache = "~/.cache/mutt/header"
+
+alternative_order text/plain text/html
+auto_view text/html
 
 # Theme
 color normal     default default        # default colours
