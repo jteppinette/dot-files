@@ -62,6 +62,7 @@ Apt Packages
   - webext-privacy-badger
   - okular
   - mutt
+  - inkscape [inkscape-tutorials]
 
 Pip Packages
 ============
