@@ -8,6 +8,7 @@ RED="#BF616A"
 YELLOW="#EBCB8B"
 GREEN="#A3BE8C"
 BLUE="#88c0d0"
+DARK="#2E3440"
 
 ###########################
 # Data generation functions
@@ -78,9 +79,16 @@ format() {
 		BATTERY_COLOR=$BLUE
 	fi
 
+	VOLUME_VALUE=$(volume)
+	if [ "$VOLUME_VALUE" = "MUTED" ]; then
+		VOLUME_COLOR=$RED
+	else
+		VOLUME_COLOR=$DARK
+	fi
+
 	echo -n "%{l} "
 	echo -n "Desktop $(desktop) | "
-	echo -n "%{A:amixer set Master toggle:}Volume [$(volume)]%{A} "
+	echo -n "%{U$VOLUME_COLOR}%{+u} %{A:amixer set Master toggle:}Volume [$VOLUME_VALUE] %{-u} %{U-}%{A}"
 	
 	SONG_VALUE=$(song)
 	if [ "$SONG_VALUE" != "" ]; then
