@@ -34,6 +34,11 @@ set header_cache = "~/.cache/mutt/header"
 alternative_order text/plain text/html
 auto_view text/html
 
+# PGP
+set crypt_autosign = yes
+set crypt_use_gpgme = yes
+set crypt_replysignencrypted = yes
+
 # Theme
 color normal     default default        # default colours
 color index      brightblue default ~N  # new messages

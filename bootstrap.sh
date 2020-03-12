@@ -24,8 +24,9 @@ mkdir -p $HOME/.mutt
 # Apply symlinks
 ln -sf $DIR/bashrc		$HOME/.bashrc
 ln -sf $DIR/dmrc 		$HOME/.dmrc
+ln -sf $DIR/gpg.conf		$HOME/.gnupg/gpg.conf
 ln -sf $DIR/gpg-agent.conf 	$HOME/.gnupg/gpg-agent.conf
-ln -sf $DIR/sshcontrol 		$HOME/.gnupg/sshcontrol
+ln -sf $DIR/sshcontrol		$HOME/.gnupg/sshcontrol
 ln -sf $DIR/tmux.conf 		$HOME/.tmux.conf
 ln -sf $DIR/vimrc		$HOME/.vimrc
 ln -sf $DIR/muttrc		$HOME/.mutt/muttrc
