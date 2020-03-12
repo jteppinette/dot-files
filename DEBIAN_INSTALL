@@ -64,6 +64,7 @@ Apt Packages
   - mutt
   - inkscape [inkscape-tutorials]
   - w3m
+  - pulseaudio
 
 Pip Packages
 ============

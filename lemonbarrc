@@ -46,10 +46,10 @@ clock() {
 volume() {
 	PARSE='
 	/%/ {
-		if ($7 == "off") { print "MUTED" }
+		if ($5 == "off") { print "MUTED" }
 		else { print $2"%" }
 	}'
-	echo -n $(amixer get Master | awk -F"[]%[]" "$PARSE")
+	echo -n $(amixer get Master | awk -F"[]%[]" "$PARSE" | head -n 1)
 }
 
 battery() {
