@@ -21,6 +21,8 @@ $ sudo systemctl stop mpd && \                            # Stop and disable sys
   sudo systemctl disable mpd    
 $ systemctl --user mpd start && \                         # Start and enable user mpd
   systemctl --user enable mpd
+$ systemctl --user syncthing start && \                   # Start and enable user syncthing
+  systemctl --user enable syncthing
 $ sudo vim /etc/default/grub                              # Set grub configuration to contents listed below
 $ sudo update-grub                                        # Load grub configuration
 ```
@@ -67,6 +69,7 @@ Apt Packages
   - inkscape [inkscape-tutorials]
   - w3m
   - pulseaudio
+  - syncthing
 
 Alternatives
 ============
