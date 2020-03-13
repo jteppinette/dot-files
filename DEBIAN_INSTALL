@@ -13,7 +13,6 @@ $ printf "auto lo\n" | sudo tee /etc/network/interfaces   # Clear bootstrap netw
 $ sudo service network-manager restart
 $ sudo reboot                                             # Verify network configuration
 $ sudo apt install <apt_package_list>
-$ pip3 install <pip_package_list>
 $ sudo update-alternatives --set \                        # Apply manual alternatives
   editor /usr/bin/vim.nox
 $ sudo update-alternatives --set \
@@ -44,7 +43,9 @@ Apt Packages
   - tldr
   - pass
   - pinentry-qt
-  - python3-pip
+  - python3-flake8
+  - python3-isort
+  - black
   - curl
   - xdg-utils
   - acpi
@@ -65,12 +66,6 @@ Apt Packages
   - inkscape [inkscape-tutorials]
   - w3m
   - pulseaudio
-
-Pip Packages
-============
-  - black
-  - isort
-  - flake8
 
 Alternatives
 ============
