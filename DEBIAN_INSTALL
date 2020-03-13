@@ -43,8 +43,8 @@ Apt Packages
   - tldr
   - pass
   - pinentry-qt
-  - python3-flake8
-  - python3-isort
+  - flake8
+  - isort
   - black
   - curl
   - xdg-utils
