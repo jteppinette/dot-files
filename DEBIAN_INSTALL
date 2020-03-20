@@ -71,6 +71,10 @@ Apt Packages
   - pulseaudio
   - syncthing
   - irssi
+  - vlc
+  - ffmpeg2theora
+  - dir2ogg
+  - vorbis-tools
 
 Alternatives
 ============
@@ -146,3 +150,38 @@ $ ncmpcpp
 Games
 =====
 * flare-game
+
+Audio File Modification
+=======================
+
+*Convert - All to OGG Vorbis*
+```
+$ dir2ogg --delete-inpute --recursive --convert-all --m4a=mplayer --directory <directory>
+```
+
+*Convert - MP3 to OGG Vorbis*
+```
+$ dir2ogg --delete-inpute --recursive --mp3 --smart-mp3 --directory <directory>
+```
+
+*Edit - Comments*
+```
+$ vorbiscomments ...
+```
+
+*Inspect*
+```
+$ ogginfo ...
+```
+
+Video File Modification
+=======================
+*Convert - All to OGG Theora*
+```
+$ ffmpeg2theora --audioquality 3 <inputfile>
+```
+
+*Inspect*
+```
+$ ogginfo ...
+```
