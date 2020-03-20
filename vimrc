@@ -177,3 +177,7 @@ augroup markdown
 	autocmd FileType markdown nnoremap <buffer> <localleader>s :MarkdownPreviewStop<CR>
 augroup END " }}}
 
+" c {{{
+augroup c
+	autocmd FileType c nnoremap <buffer> <localleader>c :make!<CR>
+augroup END " }}}
