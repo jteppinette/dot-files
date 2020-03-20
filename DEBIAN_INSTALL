@@ -75,6 +75,7 @@ Apt Packages
   - ffmpeg2theora
   - dir2ogg
   - vorbis-tools
+  - dnsutils
 
 Alternatives
 ============
