@@ -65,7 +65,6 @@ Apt Packages
   - webext-noscript
   - webext-privacy-badger
   - okular
-  - okular-extra-backends
   - mutt
   - inkscape [inkscape-tutorials]
   - w3m
@@ -78,6 +77,7 @@ Apt Packages
   - vorbis-tools
   - dnsutils
   - transmission-gtk
+  - calibre
 
 Alternatives
 ============
