@@ -30,6 +30,7 @@ $ sudo update-grub                                        # Load grub configurat
 Apt Packages
 ============
   - network-manager
+  - network-manager-openvpn
   - lightdm
   - bspwm (x-window-manager)
   - kitty (x-terminal-emulator)
@@ -44,7 +45,7 @@ Apt Packages
   - mpd
   - tldr
   - pass
-  - pinentry-qt
+  - pinentry-gtk2
   - flake8
   - isort
   - black
@@ -102,6 +103,38 @@ Unix Pass
 =========
 ```
 $ git clone git@git.jteppinette.com:pass-store.git ~/.password-store 
+```
+
+VPN
+===
+
+*Retrieve OpenVPN Configuration Files*
+```
+$ wget https://downloads.nordcdn.com/configs/archives/servers/ovpn.zip
+$ unzip ovpn.zip
+$ rm ovpn.zip
+$ rm -rf ovpn_udp
+$ mv ovpn_tcp ~/.config/nordvpn
+
+*Add VPN Connection*
+
+You can use the NordVPN server recommendation service at https://nordvpn.com/servers/tools/
+to locate the nearest VPN.
+
+```
+$ nmcli connection import type openvpn file ~/.config/nordvpn/<server>.nordvpn.com.tcp
+$ nmcli connection modify <server>.nordvpn.com.tcp user <email>
+```
+
+*Activate VPN Connection*
+```
+$ nmcli connection up --ask <server>.nordvpn.com.tcp
+Password: <password>
+```
+
+*Deactivate VPN Connection*
+```
+$ nmcli connection down <server>.nordvpn.com.tcp
 ```
 
 Sensors & Battery
