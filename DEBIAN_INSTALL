@@ -213,7 +213,12 @@ Video File Modification
 =======================
 *Convert - All to OGG Theora*
 ```
-$ ffmpeg2theora --audioquality 3 <inputfile>
+$ ffmpeg2theora --audioquality 5 <inputfile>
+```
+
+*Convert - All to OGG Theora w/ Subtitles*
+```
+$ ffmpeg2theora --audioquality 5 --subtitles <srt_file> --subtitles-language <iso_639-1_code> <inputfile>
 ```
 
 *Inspect*
