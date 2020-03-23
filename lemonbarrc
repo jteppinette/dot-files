@@ -54,18 +54,20 @@ clock() {
 }
 
 volume() {
-	PARSE='
-	/%/ {
-		if ($5 == "off") { print "MUTED" }
-		else { print $2"%" }
-	}'
-	echo -n $(amixer get Master | awk -F"[]%[]" "$PARSE" | head -n 1)
+	echo -n $(pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,')
 }
 
 battery() {
 	VALUE=$(acpi --battery | cut -d, -f 2)
 	echo -n ${VALUE%?}
 }
+
+###########
+# Constants
+###########
+
+PA_DEVICE="alsa_output.pci-0000_00_1b.0.analog-stereo"
+TOGGLE_MUTE_CMD="pactl set-sink-mute $PA_DEVICE toggle"
 
 ######
 # Main
@@ -89,16 +91,9 @@ format() {
 		BATTERY_COLOR=$BLUE
 	fi
 
-	VOLUME_VALUE=$(volume)
-	if [ "$VOLUME_VALUE" = "MUTED" ]; then
-		VOLUME_COLOR=$RED
-	else
-		VOLUME_COLOR=$DARK
-	fi
-
 	echo -n "%{l} "
 	echo -n "Desktop $(desktop) | "
-	echo -n "%{U$VOLUME_COLOR}%{+u} %{A:amixer set Master toggle:}Volume [$VOLUME_VALUE] %{-u} %{U-}%{A}"
+	echo -n "%{U$DARK}%{+u} %{A:$TOGGLE_MUTE_CMD:}Volume [$(volume)%] %{-u} %{U-}%{A}"
 	
 	SONG_VALUE=$(song)
 	if [ "$SONG_VALUE" != "" ]; then

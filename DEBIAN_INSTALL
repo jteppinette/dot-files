@@ -54,7 +54,6 @@ Apt Packages
   - acpi
   - lm-sensors
   - s-tui
-  - alsa-utils
   - pavucontrol
   - tmux
   - libreoffice
@@ -169,13 +168,6 @@ GRUB_TIMEOUT=0
 GRUB_DISTRIBUTOR=`lsb_release -i -s 2> /dev/null || echo Debian`
 GRUB_CMDLINE_LINUX_DEFAULT="ro quiet splash loglevel=0 rd.systemd.show_status=quiet rd.udev.log-priority=3 gfxpayload=keep $vt_handoff"
 GRUB_CMDLINE_LINUX=""
-```
-
-Audio
-=====
-*Volume Control*
-```
-$ alsamixer
 ```
 
 *Music Player*
