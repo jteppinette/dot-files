@@ -55,6 +55,7 @@ Apt Packages
   - lm-sensors
   - s-tui
   - alsa-utils
+  - pavucontrol
   - tmux
   - libreoffice
   - xfonts-terminus
