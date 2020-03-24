@@ -71,7 +71,7 @@ Apt Packages
   - pulseaudio
   - syncthing
   - irssi
-  - vlc
+  - gnome-mpv
   - ffmpeg
   - opus-tools
   - dnsutils
