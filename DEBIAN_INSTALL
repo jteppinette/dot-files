@@ -72,9 +72,8 @@ Apt Packages
   - syncthing
   - irssi
   - vlc
-  - ffmpeg2theora
-  - dir2ogg
-  - vorbis-tools
+  - ffmpeg
+  - opus-tools
   - dnsutils
   - transmission-gtk
   - calibre
@@ -182,39 +181,49 @@ Games
 Audio File Modification
 =======================
 
-*Convert - All to OGG Vorbis*
+*Convert - OGG Opus*
 ```
-$ dir2ogg --delete-inpute --recursive --convert-all --m4a=mplayer --directory <directory>
-```
-
-*Convert - MP3 to OGG Vorbis*
-```
-$ dir2ogg --delete-inpute --recursive --mp3 --smart-mp3 --directory <directory>
-```
-
-*Edit - Comments*
-```
-$ vorbiscomments ...
-```
-
-*Inspect*
-```
-$ ogginfo ...
+$ ffmpeg -i <inputfile> -c:a libopus <filename>.ogg
 ```
 
 Video File Modification
 =======================
-*Convert - All to OGG Theora*
+
+Use the inspect commands below to determine the input bitrate to use
+during conversion.
+
+*Inspect Streams*
 ```
-$ ffmpeg2theora --audioquality 3 <inputfile>
+$ ffprobe -show_streams -i <inputfile>
 ```
 
-*Convert - All to OGG Theora w/ Subtitles*
+Using the input streams bitrate and the table below of bitrate to output size
+conversions, a reasonable output bitrate can be determined. However, a good
+recommendation for streaming high quality content is 2.5Mbps.
+
+Additional information on bitrates can be found in the
+article [What Bitrate Should I Use When Encoding My Video How Do I Optimize My Video For The Web](https://www.ezs3.com/public/What_bitrate_should_I_use_when_encoding_my_video_How_do_I_optimize_my_video_for_the_web.cfm).
+
+Output Size       | Bitrate   | Filesize
+------------------|-----------|----------------
+320x240           | 400 kbps  | 3MB / minute
+480x270           | 700 kbps  | 5MB / minute
+1024 x 576        | 1500 kbps | 11MB / minute
+1280x720  (720p)  | 2500 kbps | 19MB / minute
+1920x1080 (1080p) | 4000 kbps | 30MB / minute
+
+*Convert - All to MKV (VP8/OPUS)*
+
 ```
-$ ffmpeg2theora --audioquality 3 --subtitles <srt_file> --subtitles-language <iso_639-1_code> <inputfile>
+$ ffmpeg -i <inputfile> -c:v vp8 -b:v <video_bitrate> -crf 10 -c:a libopus <outputfile>
 ```
 
-*Inspect*
+*Convert - All to MKV (VP8/OPUS) w/ Subtitles*
 ```
-$ ogginfo ...
+$ ffmpeg -i <inputfile> -i <subtitles_inputfile> -metadata:s:s:0 language=en -c:v vp8 -b:v <video_bitrate> -crf 10 -c:a libopus <outputfile>
+```
+
+*Add Subtitles*
+```
+$ ffmpeg -i <inputfile> -i <subtitles_inputfile> -metadata:s:s:0 language=en -c copy <outputfile>
 ```
