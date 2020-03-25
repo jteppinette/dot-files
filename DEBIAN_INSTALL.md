@@ -77,6 +77,7 @@ Apt Packages
   - dnsutils
   - transmission-gtk
   - calibre
+  - mkvtoolnix-gui
 
 Alternatives
 ============
