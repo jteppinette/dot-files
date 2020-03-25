@@ -78,6 +78,7 @@ Apt Packages
   - transmission-gtk
   - calibre
   - mkvtoolnix-gui
+  - gimp
 
 Alternatives
 ============
