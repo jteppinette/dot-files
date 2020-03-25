@@ -58,7 +58,6 @@ Apt Packages
   - tmux
   - libreoffice
   - xfonts-terminus
-  - conky
   - mpc
   - webext-browserpass
   - webext-https-everywhere
