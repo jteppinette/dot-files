@@ -72,7 +72,6 @@ Apt Packages
   - irssi
   - gnome-mpv
   - ffmpeg
-  - opus-tools
   - dnsutils
   - transmission-gtk
   - calibre
@@ -185,7 +184,7 @@ Audio File Modification
 
 *Convert - OGG Opus*
 ```
-$ ffmpeg -i <inputfile> -c:a libopus <filename>.ogg
+$ ffmpeg -i <inputfile> -c:a aac <filename>.m4a
 ```
 
 Video File Modification
@@ -197,6 +196,11 @@ during conversion.
 *Inspect Streams*
 ```
 $ ffprobe -show_streams -i <inputfile>
+```
+
+*Inspect Content*
+```
+$ ffmpeg -i <inputfile>
 ```
 
 Using the input streams bitrate and the table below of bitrate to output size
@@ -214,15 +218,15 @@ Output Size       | Bitrate   | Filesize
 1280x720  (720p)  | 2500 kbps | 19MB / minute
 1920x1080 (1080p) | 4000 kbps | 30MB / minute
 
-*Convert - All to MKV (VP8/OPUS)*
+*Convert - All to MKV (VP8/AAC)*
 
 ```
-$ ffmpeg -i <inputfile> -c:v vp8 -b:v <video_bitrate> -crf 10 -c:a libopus <outputfile>
+$ ffmpeg -i <inputfile> -c:v vp8 -b:v <video_bitrate> -crf 10 -c:a aac <outputfile>
 ```
 
-*Convert - All to MKV (VP8/OPUS) w/ Subtitles*
+*Convert - All to MKV (VP8/AAC) w/ Subtitles*
 ```
-$ ffmpeg -i <inputfile> -i <subtitles_inputfile> -metadata:s:s:0 language=en -c:v vp8 -b:v <video_bitrate> -crf 10 -c:a libopus <outputfile>
+$ ffmpeg -i <inputfile> -i <subtitles_inputfile> -metadata:s:s:0 language=en -c:v vp8 -b:v <video_bitrate> -crf 10 -c:a aac <outputfile>
 ```
 
 *Add Subtitles*
