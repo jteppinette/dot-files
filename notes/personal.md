@@ -78,6 +78,7 @@ Apt Packages
   - calibre
   - mkvtoolnix-gui
   - gimp
+  - audacious
 
 Alternatives
 ============
