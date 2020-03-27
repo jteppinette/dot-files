@@ -77,6 +77,7 @@ Apt Packages
   - calibre
   - mkvtoolnix-gui
   - gimp
+  - krita
   - audacious
 
 Alternatives
