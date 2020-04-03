@@ -187,16 +187,13 @@ Games
 Audio File Modification
 =======================
 
-*Convert - OGG Opus*
+*Convert - AAC*
 ```
 $ ffmpeg -i <inputfile> -c:a aac <filename>.m4a
 ```
 
 Video File Modification
 =======================
-
-Use the inspect commands below to determine the input bitrate to use
-during conversion.
 
 *Inspect Streams*
 ```
@@ -208,33 +205,15 @@ $ ffprobe -show_streams -i <inputfile>
 $ ffmpeg -i <inputfile>
 ```
 
-Using the input streams bitrate and the table below of bitrate to output size
-conversions, a reasonable output bitrate can be determined. However, a good
-recommendation for streaming high quality content is 2.5Mbps.
+*Convert - All to MKV (H.264/AAC)*
 
-Additional information on bitrates can be found in the
-article [What Bitrate Should I Use When Encoding My Video How Do I Optimize My Video For The Web](https://www.ezs3.com/public/What_bitrate_should_I_use_when_encoding_my_video_How_do_I_optimize_my_video_for_the_web.cfm).
-
-Output Size       | Bitrate   | Filesize
-------------------|-----------|----------------
-320x240           | 400 kbps  | 3MB / minute
-480x270           | 700 kbps  | 5MB / minute
-1024 x 576        | 1500 kbps | 11MB / minute
-1280x720  (720p)  | 2500 kbps | 19MB / minute
-1920x1080 (1080p) | 4000 kbps | 30MB / minute
-
-*Convert - All to MKV (VP8/AAC)*
-
+The libx264 encoder with a CRF (Constant Rate Factor) of 17 or 18 will
+generate a mostly visually lossless output.
 ```
-$ ffmpeg -i <inputfile> -c:v vp8 -b:v <video_bitrate> -crf 10 -c:a aac <outputfile>
+$ ffmpeg -i <inputfile> -c:v libx264 -crf 18 -c:a aac <filename>.mkv
 ```
 
-*Convert - All to MKV (VP8/AAC) w/ Subtitles*
+*Convert - H.264/AAC to MKV (H.264/AAC)*
 ```
-$ ffmpeg -i <inputfile> -i <subtitles_inputfile> -metadata:s:s:0 language=en -c:v vp8 -b:v <video_bitrate> -crf 10 -c:a aac <outputfile>
-```
-
-*Add Subtitles*
-```
-$ ffmpeg -i <inputfile> -i <subtitles_inputfile> -metadata:s:s:0 language=en -c copy <outputfile>
+$ ffmpeg -i <inputfile> -c copy <filename>.mkv
 ```
