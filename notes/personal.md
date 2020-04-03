@@ -30,7 +30,6 @@ $ sudo update-grub                                        # Load grub configurat
 Apt Packages
 ============
   - network-manager
-  - network-manager-openvpn
   - lightdm
   - bspwm (x-window-manager)
   - kitty (x-terminal-emulator)
@@ -110,33 +109,38 @@ $ git clone git@git.jteppinette.com:pass-store.git ~/.password-store
 VPN
 ===
 
-*Retrieve OpenVPN Configuration Files*
+*Install NordVPN*
 ```
-$ wget https://downloads.nordcdn.com/configs/archives/servers/ovpn.zip
-$ unzip ovpn.zip
-$ rm ovpn.zip
-$ rm -rf ovpn_udp
-$ mv ovpn_tcp ~/.config/nordvpn
-
-*Add VPN Connection*
-
-You can use the NordVPN server recommendation service at https://nordvpn.com/servers/tools/
-to locate the nearest VPN.
-
-```
-$ nmcli connection import type openvpn file ~/.config/nordvpn/<server>.nordvpn.com.tcp
-$ nmcli connection modify <server>.nordvpn.com.tcp user <email>
+$ wget https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/nordvpn-release_1.0.0_all.deb
+$ sudo apt install ./nordvpn-release_1.0.0_all.deb
+$ sudo apt update
+$ sudo apt install nordvpn
 ```
 
-*Activate VPN Connection*
+*Login*
 ```
-$ nmcli connection up --ask <server>.nordvpn.com.tcp
-Password: <password>
+$ nordvpn login
 ```
 
-*Deactivate VPN Connection*
+*Update Settings*
 ```
-$ nmcli connection down <server>.nordvpn.com.tcp
+$ nordvpn set protocol TCP
+$ nordvpn set killswitch enabled
+```
+
+*Connect - Recommended*
+```
+$ nordvpn connect
+```
+
+*Connect - P2P*
+```
+$ nordvpn connect P2P
+```
+
+*Status*
+```
+$ nordvpn status
 ```
 
 Sensors & Battery
