@@ -15,29 +15,26 @@ DARK="#2E3440"
 ###########################
 
 network() {
-	ROUTE=$(ip route get 1.1.1.1 2> /dev/null)
-       	RC=$?
-	if [ $RC -ne 0 ]; then
-		echo -n "Not Connected"
+	VPN_STATUS=$(nordvpn status | head -n 1 | cut -d ' ' -f 2)
+	if [ "$VPN_STATUS" = 'Connected' ]; then
+		echo -n "VPN"
 	else
-		DEVICE=$(echo $ROUTE | grep -Po "dev \K\w+")
-		TYPE=$(nmcli connection show | grep $DEVICE | grep -Po "(wifi|ethernet|tun)" | head -n 1)
-		if [ "$TYPE" = "ethernet" ]; then
-			echo -n "Ethernet"
-		elif [ "$TYPE" = "wifi" ]; then
-			echo -n $(nmcli connection show | grep $DEVICE | awk '{print $1}')
-		elif [ "$TYPE" = "tun" ]; then
-			VPN_DEVICE=$(nmcli connection | awk '$3 == "vpn" {print $4}')
-			VPN_TYPE=$(nmcli connection show | grep $VPN_DEVICE | grep -v vpn | grep -Po "(wifi|ethernet)")
-			VPN_NAME=$(nmcli connection show | grep $VPN_DEVICE | grep "vpn" | awk '{print $1}' | cut -d '.' -f 1 | tr '[:lower:]' '[:upper:]')
-			if [ "$VPN_TYPE" = "ethernet" ]; then
-				echo -n "Ethernet - VPN $VPN_NAME"
-			elif [ "$VPN_TYPE" = "wifi" ]; then
-				VPN_WIFI=$(nmcli connection show | grep $VPN_DEVICE | grep "wifi" | awk '{print $1}')
-				echo -n "$VPN_WIFI - VPN $VPN_NAME"
+		ROUTE=$(ip route get 1.1.1.1 2> /dev/null)
+		RC=$?
+		if [ $RC -ne 0 ]; then
+			echo -n "Not Connected"
+		else
+			DEVICE=$(echo $ROUTE | grep -Po "dev \K\w+")
+			TYPE=$(nmcli connection show | grep $DEVICE | grep -Po "(wifi|ethernet|tun)" | head -n 1)
+			if [ "$TYPE" = "ethernet" ]; then
+				echo -n "Ethernet"
+			elif [ "$TYPE" = "wifi" ]; then
+				echo -n $(nmcli connection show | grep $DEVICE | awk '{print $1}')
 			fi
 		fi
+
 	fi
+
 }
 
 desktop() {
@@ -78,6 +75,13 @@ format() {
 	NETWORK_VALUE=$(network)
 	if [ "$NETWORK_VALUE" = "Not Connected" ]; then
 		NETWORK_COLOR=$RED
+	elif [ "$NETWORK_VALUE" = "VPN" ]; then
+		if [ "$(nordvpn settings | grep "Kill Switch" | cut -d ' ' -f 3)" = 'enabled' ]; then
+			NETWORK_COLOR=$YELLOW
+		else
+			NETWORK_COLOR=$RED
+		fi
+
 	else
 		NETWORK_COLOR=$GREEN
 	fi
