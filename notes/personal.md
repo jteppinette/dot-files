@@ -78,6 +78,7 @@ Apt Packages
   - gimp
   - krita
   - audacious
+  - thunderbird [enigmail]
 
 Alternatives
 ============
