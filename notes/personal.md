@@ -48,6 +48,7 @@ Apt Packages
   - flake8
   - isort
   - black
+  - node-js-beautify
   - curl
   - xdg-utils
   - acpi
