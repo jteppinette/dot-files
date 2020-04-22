@@ -15,8 +15,7 @@ DARK="#2E3440"
 ###########################
 
 network() {
-	VPN_STATUS=$(nordvpn status | head -n 1 | cut -d ' ' -f 2)
-	if [ "$VPN_STATUS" = 'Connected' ]; then
+	if nordvpn status | grep -q "Status: Connected"; then
 		echo -n "VPN"
 	else
 		ROUTE=$(ip route get 1.1.1.1 2> /dev/null)
