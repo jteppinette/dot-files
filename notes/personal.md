@@ -100,13 +100,19 @@ Import GPG Key
 $ mkdir /media/usb
 $ mount /dev/sdb1 /media/usb
 $ gpg --import /media/usb/PGP/<key_id>.asc
-``
+```
 
 Unix Pass
 =========
 ```
 $ git clone git@git.jteppinette.com:pass-store.git ~/.password-store 
 ```
+
+Bash Completions
+================
+*The following files can be placed into /etc/bash_completion.d/.*
+
+* [tmux](https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/master/completions/tmux)
 
 VPN
 ===
