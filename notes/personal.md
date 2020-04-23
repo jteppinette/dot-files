@@ -177,11 +177,6 @@ GRUB_CMDLINE_LINUX_DEFAULT="ro quiet splash loglevel=0 rd.systemd.show_status=qu
 GRUB_CMDLINE_LINUX=""
 ```
 
-*Music Player*
-```
-$ ncmpcpp
-```
-
 Games
 =====
 * flare-game
