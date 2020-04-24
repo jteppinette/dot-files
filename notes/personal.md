@@ -80,6 +80,7 @@ Apt Packages
   - krita
   - audacious
   - thunderbird [enigmail]
+  - x11-apps
 
 Alternatives
 ============
@@ -219,4 +220,10 @@ $ ffmpeg -i <inputfile> -c:v libx264 -crf 18 -c:a aac <filename>.mkv
 *Convert - H.264/AAC to MKV (H.264/AAC)*
 ```
 $ ffmpeg -i <inputfile> -c copy <filename>.mkv
+```
+
+Screenshots
+===========
+```
+$ xwd | xwdtopnm | pnmtopng > capture.png
 ```
