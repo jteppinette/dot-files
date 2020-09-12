@@ -1,18 +1,20 @@
-#!/bin/sh
+#!/bin/zsh
 
-brew install coreutils &> /dev/null
+realpath() {
+    [[ $1 = /* ]] && echo $1 || echo $PWD/${1#./}
+}
 
-SCRIPT=$(greadlink -f "$0")
-DIR=$(dirname "$SCRIPT")
+SCRIPT=$(realpath $0)
+DIR=$(dirname $SCRIPT)
 
-brew bundle install --file=$DIR/Brewfile &> /dev/null
+brew bundle install --file=$DIR/Brewfile
 
-ln -sf $DIR/bash_profile	$HOME/.bash_profile
+ln -sf $DIR/zshrc		$HOME/.zshrc
 ln -sf $DIR/tmux.conf 		$HOME/.tmux.conf
 ln -sf $DIR/vimrc		$HOME/.vimrc
 
-if [ ! -d "$HOME/.tmux/plugins" ]; then
-	if command -v git &> /dev/null; then
-		git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-	fi
+if [ ! -d $HOME/.tmux/plugins ]; then
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
+
+compaudit 2> /dev/null | xargs chmod g-w
