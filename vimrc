@@ -104,7 +104,7 @@ augroup END " }}}
 
 " javascript {{{
 augroup javascript
-	autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 expandtab
+	autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 expandtab
 	autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
 augroup END " }}}
 
