@@ -69,11 +69,13 @@ let g:ale_fixers.javascript = ['prettier-standard']
 let g:ale_fixers.json = ['prettier']
 let g:ale_fixers.html = ['prettier']
 let g:ale_fixers.css = ['prettier']
+let g:ale_fixers.markdown = ['prettier']
 let g:ale_fixers.python = ['black', 'isort']
 
 let g:ale_linters = {}
 let g:ale_linters.javascript = []
 let g:ale_linters.python = ['flake8']
+let g:ale_linters.markdown = ['write-good']
 
 let g:ale_fix_on_save = 1
 " }}}
@@ -152,6 +154,12 @@ augroup END " }}}
 augroup markdown
 	autocmd FileType markdown nnoremap <buffer> <localleader>d :MarkdownPreview<CR>
 	autocmd FileType markdown nnoremap <buffer> <localleader>s :MarkdownPreviewStop<CR>
+	autocmd FileType markdown setlocal spell spelllang=en_us
+augroup END " }}}
+
+" text {{{
+augroup markdown
+	autocmd FileType text setlocal spell spelllang=en_us
 augroup END " }}}
 
 " c {{{
