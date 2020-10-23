@@ -69,6 +69,7 @@ let g:ale_fixers.javascript = ['prettier-standard']
 let g:ale_fixers.json = ['prettier']
 let g:ale_fixers.html = ['prettier']
 let g:ale_fixers.css = ['prettier']
+let g:ale_fixers.scss = ['prettier']
 let g:ale_fixers.markdown = ['prettier']
 let g:ale_fixers.python = ['black', 'isort']
 
