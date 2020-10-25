@@ -15,6 +15,8 @@ function! PlugLoaded(name)
 endfunction
 
 call plug#begin()
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'arcticicestudio/nord-vim'
 Plug 'rizzatti/dash.vim'
 Plug 'dense-analysis/ale'
