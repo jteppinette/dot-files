@@ -121,6 +121,11 @@ augroup css
 	autocmd FileType css setlocal shiftwidth=2 tabstop=2 expandtab
 augroup END " }}}
 
+" scss {{{
+augroup scss
+	autocmd FileType scss setlocal shiftwidth=2 tabstop=2 expandtab
+augroup END " }}}
+
 " htmldjango {{{
 augroup htmldjango
 	autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2 expandtab
