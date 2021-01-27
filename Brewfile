@@ -1,6 +1,7 @@
 tap "homebrew/bundle"
 tap "homebrew/core"
 tap "homebrew/services"
+brew "ag"
 brew "direnv"
 brew "git"
 brew "jq"
