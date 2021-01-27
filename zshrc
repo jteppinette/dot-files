@@ -1,10 +1,22 @@
-FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+# environment
+export EDITOR=vim
 
+# paths
 [[ :$PATH: == *:$HOME/bin:* ]] || PATH=$HOME/bin:$PATH
 
-export EDITOR=vim
+# zsh-completions
+FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 
 autoload -Uz compinit
 compinit
 
+# direnv
 eval "$(direnv hook zsh)"
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+if command -v pyenv 1>/dev/null 2>&1; then
+	eval "$(pyenv init -)"
+fi
