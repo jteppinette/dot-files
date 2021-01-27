@@ -15,20 +15,21 @@ function! PlugLoaded(name)
 endfunction
 
 call plug#begin()
-Plug 'yuezk/vim-js'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'arcticicestudio/nord-vim'
-Plug 'rizzatti/dash.vim'
-Plug 'dense-analysis/ale'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-repeat'
 Plug 'airblade/vim-gitgutter'
-Plug 'vim-airline/vim-airline'
-Plug 'plytophogy/vim-virtualenv'
+Plug 'arcticicestudio/nord-vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'dense-analysis/ale'
 Plug 'edkolev/tmuxline.vim'
 Plug 'iamcco/markdown-preview.vim'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'plytophogy/vim-virtualenv'
+Plug 'rizzatti/dash.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'vim-airline/vim-airline'
+Plug 'yuezk/vim-js'
 call plug#end()
 
 filetype on
@@ -81,10 +82,17 @@ let g:ale_linters.python = ['flake8']
 let g:ale_linters.markdown = ['write-good']
 
 let g:ale_fix_on_save = 1
-" }}}
+" }}}}
 
-" auto commands {{{
-autocmd QuickFixCmdPost *grep* cwindow
+" silver searcher integration {{{
+if executable('ag')
+	set grepprg=ag\ --nogroup\ --nocolor
+
+	let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+	let g:ctrlp_use_caching = 0
+
+	command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+endif
 " }}}
 
 " mappings {{{
@@ -98,6 +106,8 @@ nnoremap <SPACE> <Nop>
 nnoremap <leader>n :Explore <cr>
 
 nmap <leader>d <Plug>DashSearch
+
+nnoremap \ :Ag<SPACE>
 " }}}
 
 " vim {{{
