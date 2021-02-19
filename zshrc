@@ -1,6 +1,3 @@
-# environment
-export EDITOR=vim
-
 # paths
 [[ :$PATH: == *:$HOME/bin:* ]] || PATH=$HOME/bin:$PATH
 
