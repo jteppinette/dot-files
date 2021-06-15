@@ -85,14 +85,15 @@ let g:ale_linters.markdown = ['write-good']
 let g:ale_fix_on_save = 1
 " }}}}
 
-" silver searcher integration {{{
-if executable('ag')
-	set grepprg=ag\ --nogroup\ --nocolor
+" rip grep integration {{{
+if executable("rg")
+	set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+	set grepformat=%f:%l:%c:%m,%f:%l:%m
 
-	let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+	let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
 	let g:ctrlp_use_caching = 0
 
-	command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+	command -nargs=+ -complete=file -bar Rg silent! grep! <args>|cwindow|redraw!
 endif
 " }}}
 
