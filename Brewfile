@@ -4,6 +4,7 @@ tap "homebrew/services"
 
 brew "ag"
 brew "direnv"
+brew "fzf"
 brew "git"
 brew "git"
 brew "jq"
