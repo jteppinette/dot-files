@@ -3,6 +3,7 @@ tap "homebrew/core"
 tap "homebrew/services"
 
 brew "ag"
+brew "bat"
 brew "direnv"
 brew "fzf"
 brew "git"
