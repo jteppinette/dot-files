@@ -4,7 +4,6 @@ tap "homebrew/services"
 
 brew "ag"
 brew "bat"
-brew "broot"
 brew "choose-rust"
 brew "direnv"
 brew "dog"
