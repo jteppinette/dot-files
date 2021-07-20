@@ -76,6 +76,7 @@ let g:ale_fixers.scss = ['prettier']
 let g:ale_fixers.markdown = ['prettier']
 let g:ale_fixers.sh = ['shfmt']
 let g:ale_fixers.python = ['black', 'isort']
+let g:ale_fixers.yaml = ['prettier']
 
 let g:ale_linters = {}
 let g:ale_linters.javascript = []
