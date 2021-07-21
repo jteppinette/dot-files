@@ -189,3 +189,8 @@ augroup END " }}}
 augroup c
 	autocmd FileType c nnoremap <buffer> <localleader>c :make!<CR>
 augroup END " }}}
+
+" go {{{
+augroup go
+	autocmd FileType go setlocal tabstop=4
+augroup END " }}}
