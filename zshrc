@@ -21,3 +21,4 @@ eval "$(pyenv init -)"
 
 # aliases
 alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:250 {}'"
+alias vimf='vim -o "$(fzf)"'
