@@ -33,3 +33,5 @@ brew "tmux"
 brew "vim"
 brew "zsh"
 brew "zsh-completions"
+
+cask "table-tool"
