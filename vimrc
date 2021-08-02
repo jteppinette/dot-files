@@ -115,6 +115,11 @@ nmap <leader>d <Plug>DashSearch
 nnoremap \ :Ag<SPACE>
 " }}}
 
+" pyindent {{{
+let g:pyindent_open_paren = '&sw'
+let g:pyindent_continue = '&sw'
+"}}}
+
 " vim {{{
 augroup vim
 	autocmd FileType vim setlocal foldmethod=marker
