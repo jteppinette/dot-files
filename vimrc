@@ -192,5 +192,5 @@ augroup END " }}}
 
 " go {{{
 augroup go
-	autocmd FileType go setlocal tabstop=4
+	autocmd FileType go setlocal tabstop=4 shiftwidth=4
 augroup END " }}}
