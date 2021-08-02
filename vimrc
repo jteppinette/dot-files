@@ -83,6 +83,7 @@ let g:ale_linters = {}
 let g:ale_linters.javascript = []
 let g:ale_linters.python = ['flake8']
 let g:ale_linters.markdown = ['write-good']
+let g:ale_linters.go = ['govet']
 
 let g:ale_fix_on_save = 1
 " }}}}
