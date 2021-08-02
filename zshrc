@@ -19,5 +19,9 @@ fi
 
 eval "$(pyenv init -)"
 
+# fzf
+export FZF_DEFAULT_COMMAND="fd --type f"
+
 # aliases
 alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:250 {}'"
+alias vimf='vim -o "$(fzf)"'
