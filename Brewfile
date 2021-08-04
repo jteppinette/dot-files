@@ -34,4 +34,5 @@ brew "vim"
 brew "zsh"
 brew "zsh-completions"
 
+cask "dash"
 cask "table-tool"
