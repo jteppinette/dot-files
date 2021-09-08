@@ -78,6 +78,7 @@ let g:ale_fixers.sh = ['shfmt']
 let g:ale_fixers.python = ['black', 'isort']
 let g:ale_fixers.yaml = ['prettier']
 let g:ale_fixers.go = ['goimports']
+let g:ale_fixers.sql = ['pgformatter']
 
 let g:ale_linters = {}
 let g:ale_linters.javascript = []
@@ -199,4 +200,9 @@ augroup END " }}}
 " go {{{
 augroup go
 	autocmd FileType go setlocal tabstop=4 shiftwidth=4
+augroup END " }}}
+
+" sql {{{
+augroup sql
+	autocmd FileType sql setlocal tabstop=4 shiftwidth=4
 augroup END " }}}
