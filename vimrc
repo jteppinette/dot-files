@@ -57,6 +57,7 @@ set path+=**
 set wildmenu
 set wildignore+=**/__pycache__/**,**/.git/**,*.pyc,**/venv/**
 set updatetime=100
+set omnifunc=syntaxcomplete#Complete
 
 let maplocalleader = ","
 let mapleader = " "
