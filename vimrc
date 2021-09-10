@@ -79,6 +79,7 @@ let g:ale_fixers.python = ['black', 'isort']
 let g:ale_fixers.yaml = ['prettier']
 let g:ale_fixers.go = ['goimports']
 let g:ale_fixers.sql = ['pgformatter']
+let g:ale_fixers.java = ['google_java_format']
 
 let g:ale_linters = {}
 let g:ale_linters.javascript = []
@@ -205,4 +206,9 @@ augroup END " }}}
 " sql {{{
 augroup sql
 	autocmd FileType sql setlocal tabstop=4 shiftwidth=4
+augroup END " }}}
+
+" java {{{
+augroup java
+	autocmd FileType java setlocal tabstop=2 shiftwidth=2 expandtab
 augroup END " }}}
