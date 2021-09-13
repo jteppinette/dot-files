@@ -20,6 +20,7 @@ Plug 'airblade/vim-rooter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dense-analysis/ale'
+Plug 'artur-shaik/vim-javacomplete2'
 Plug 'edkolev/tmuxline.vim'
 Plug 'ervandew/supertab'
 Plug 'iamcco/markdown-preview.vim'
@@ -70,6 +71,8 @@ let g:netrw_liststyle=3
 let g:netrw_altv=1
 
 let g:tmuxline_powerline_separators = 0
+
+let g:SuperTabDefaultCompletionType = "context"
 
 let g:ale_fixers = {}
 let g:ale_fixers.javascript = ['prettier-standard']
@@ -214,5 +217,5 @@ augroup END " }}}
 
 " java {{{
 augroup java
-	autocmd FileType java setlocal tabstop=2 shiftwidth=2 expandtab
+	autocmd FileType java setlocal tabstop=2 shiftwidth=2 expandtab omnifunc=javacomplete#Complete
 augroup END " }}}
