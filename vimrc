@@ -23,7 +23,7 @@ Plug 'dense-analysis/ale'
 Plug 'artur-shaik/vim-javacomplete2'
 Plug 'edkolev/tmuxline.vim'
 Plug 'ervandew/supertab'
-Plug 'iamcco/markdown-preview.vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'plytophogy/vim-virtualenv'
 Plug 'rizzatti/dash.vim'
