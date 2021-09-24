@@ -18,10 +18,11 @@ call plug#begin()
 Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-rooter'
 Plug 'arcticicestudio/nord-vim'
+Plug 'artur-shaik/vim-javacomplete2'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dense-analysis/ale'
-Plug 'artur-shaik/vim-javacomplete2'
 Plug 'edkolev/tmuxline.vim'
+Plug 'elixir-editors/vim-elixir'
 Plug 'ervandew/supertab'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'maxmellon/vim-jsx-pretty'
@@ -88,6 +89,7 @@ let g:ale_fixers.yaml = ['prettier']
 let g:ale_fixers.go = ['goimports']
 let g:ale_fixers.sql = ['pgformatter']
 let g:ale_fixers.java = ['google_java_format']
+let g:ale_fixers.elixir = ['mix_format']
 
 let g:ale_linters = {}
 let g:ale_linters.javascript = []
