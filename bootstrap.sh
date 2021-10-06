@@ -21,3 +21,6 @@ compaudit 2> /dev/null | xargs chmod g-w
 
 # openjdk
 sudo ln -sfn /usr/local/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk
+
+# nvm
+mkdir -p $HOME/.nvm
