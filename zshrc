@@ -25,6 +25,7 @@ export FZF_DEFAULT_COMMAND="fd --type f"
 # aliases
 alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:250 {}'"
 alias vimf='vim -o "$(fzf)"'
+alias fda="fd --hidden --exclude .git --type f"
 
 # git
 function git-open() { (
