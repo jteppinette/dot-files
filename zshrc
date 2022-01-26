@@ -27,18 +27,18 @@ alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:250 {
 alias vimf='vim -o "$(fzf)"'
 
 # git
-function git-open() {(
-    set -e
+function git-open() { (
+	set -e
 
-    git remote >> /dev/null
+	git remote >>/dev/null
 
-    remote=${1:-origin}
-    url=$(git config remote.$remote.url | sed "s/git@\(.*\):\(.*\).git/https:\/\/\1\/\2/")
+	remote=${1:-origin}
+	url=$(git config remote.$remote.url | sed "s/git@\(.*\):\(.*\).git/https:\/\/\1\/\2/")
 
-    echo "git: opening $remote $url"
+	echo "git: opening $remote $url"
 
-    open $url
-)}
+	open $url
+); }
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
