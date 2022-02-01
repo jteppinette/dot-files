@@ -35,6 +35,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
 Plug 'yuezk/vim-js'
+Plug 'davidhalter/jedi-vim'
 call plug#end()
 
 filetype on
@@ -63,6 +64,8 @@ set wildmenu
 set wildignore+=**/__pycache__/**,**/.git/**,*.pyc,**/venv/**
 set updatetime=100
 set omnifunc=syntaxcomplete#Complete
+set completeopt=longest,menuone
+set noshowmode
 
 let maplocalleader = ","
 let mapleader = " "
@@ -73,7 +76,9 @@ let g:netrw_altv=1
 
 let g:tmuxline_powerline_separators = 0
 
-let g:SuperTabDefaultCompletionType = "context"
+let g:jedi#popup_on_dot = 0
+let g:jedi#use_splits_not_buffers = "winwidth"
+let g:jedi#show_call_signatures = 2
 
 let g:ale_fixers = {}
 let g:ale_fixers.javascript = ['prettier-standard']
