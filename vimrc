@@ -27,7 +27,6 @@ Plug 'ervandew/supertab'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'plytophogy/vim-virtualenv'
-Plug 'rizzatti/dash.vim'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
@@ -79,6 +78,7 @@ let g:tmuxline_powerline_separators = 0
 let g:jedi#popup_on_dot = 0
 let g:jedi#use_splits_not_buffers = "winwidth"
 let g:jedi#show_call_signatures = 2
+let g:jedi#usages_command = ""
 
 let g:ale_fixers = {}
 let g:ale_fixers.javascript = ['prettier-standard']
