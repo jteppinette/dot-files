@@ -31,4 +31,5 @@ brew "zsh"
 brew "zsh-completions"
 
 cask "dash"
+cask "dropbox"
 cask "table-tool"
