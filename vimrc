@@ -24,7 +24,7 @@ Plug 'dense-analysis/ale'
 Plug 'edkolev/tmuxline.vim'
 Plug 'elixir-editors/vim-elixir'
 Plug 'ervandew/supertab'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'plytophogy/vim-virtualenv'
 Plug 'tpope/vim-eunuch'
