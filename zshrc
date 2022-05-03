@@ -45,10 +45,5 @@ function git-open() { (
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
-
-NVM_ROOT="/usr/local/opt/nvm"
-NVM_SCRIPT_PATH="${NVM_ROOT}/nvm.sh"
-NVM_COMPLETIONS_PATH="${NVM_ROOT}/etc/bash_completion.d/nvm"
-
-[ -s "${NVM_SCRIPT_PATH}" ] && . "${NVM_SCRIPT_PATH}"
-[ -s "${NVM_COMPLETIONS_PATH}" ] && . "${NVM_COMPLETIONS_PATH}"
+[ -s /opt/homebrew/opt/nvm/nvm.sh ] && . /opt/homebrew/opt/nvm/nvm.sh
+[ -s /opt/homebrew/opt/nvm/etc/bash_completion.d/nvm ] && . /opt/homebrew/opt/nvm/etc/bash_completion.d/nvm
