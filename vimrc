@@ -144,6 +144,7 @@ augroup END " }}}
 
 " javascript {{{
 augroup javascript
+	autocmd BufNewFile,BufRead .jsx setfiletype javascript
 	autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 expandtab
 	autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
 augroup END " }}}
