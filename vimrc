@@ -171,6 +171,7 @@ augroup END " }}}
 
 " json {{{
 augroup json
+	autocmd BufNewFile,BufRead .parcelrc setfiletype json
 	autocmd BufNewFile,BufRead .jsbeautifyrc setfiletype json
 	autocmd BufNewFile,BufRead .sassrc setfiletype json
 	autocmd FileType json setlocal shiftwidth=2 tabstop=2 expandtab
