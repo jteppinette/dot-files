@@ -81,6 +81,7 @@ let g:jedi#show_call_signatures = 2
 let g:jedi#usages_command = ""
 
 let g:ale_fixers = {}
+let g:ale_fixers.c = ['clang-format']
 let g:ale_fixers.javascript = ['prettier-standard']
 let g:ale_fixers.json = ['prettier']
 let g:ale_fixers.html = ['prettier']
@@ -97,6 +98,7 @@ let g:ale_fixers.java = ['google_java_format']
 let g:ale_fixers.elixir = ['mix_format']
 
 let g:ale_linters = {}
+let g:ale_linters.c = ['clangtidy']
 let g:ale_linters.javascript = []
 let g:ale_linters.python = ['flake8', 'mypy']
 let g:ale_linters.markdown = ['write-good']
