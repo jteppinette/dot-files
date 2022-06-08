@@ -214,7 +214,9 @@ augroup END " }}}
 
 " c {{{
 augroup c
+	autocmd BufNewFile,BufRead *.h setfiletype c
 	autocmd FileType c nnoremap <buffer> <localleader>c :make!<CR>
+	autocmd FileType c setlocal tabstop=2 shiftwidth=2 expandtab
 augroup END " }}}
 
 " go {{{
