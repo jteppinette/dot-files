@@ -98,6 +98,7 @@ let g:ale_fixers.java = ['google_java_format']
 let g:ale_fixers.elixir = ['mix_format']
 
 let g:ale_linters = {}
+let g:ale_linters.java = []
 let g:ale_linters.c = ['clangtidy']
 let g:ale_linters.javascript = []
 let g:ale_linters.python = ['flake8', 'mypy']
