@@ -82,7 +82,8 @@ let g:jedi#usages_command = ""
 
 let g:ale_fixers = {}
 let g:ale_fixers.c = ['clang-format']
-let g:ale_fixers.javascript = ['prettier-standard']
+let g:ale_fixers.cpp = ['clang-format']
+let g:ale_fixers.javascript = ['standard']
 let g:ale_fixers.json = ['prettier']
 let g:ale_fixers.html = ['prettier']
 let g:ale_fixers.css = ['prettier']
@@ -100,7 +101,8 @@ let g:ale_fixers.elixir = ['mix_format']
 let g:ale_linters = {}
 let g:ale_linters.java = []
 let g:ale_linters.c = ['clangtidy']
-let g:ale_linters.javascript = []
+let g:ale_linters.cpp = ['clangtidy']
+let g:ale_linters.javascript = ['standard']
 let g:ale_linters.python = ['flake8', 'mypy']
 let g:ale_linters.markdown = ['write-good']
 let g:ale_linters.go = ['govet']
@@ -213,6 +215,11 @@ augroup END " }}}
 augroup c
 	autocmd BufNewFile,BufRead *.h setfiletype c
 	autocmd FileType c setlocal tabstop=2 shiftwidth=2 expandtab
+augroup END " }}}
+
+" cpp {{{
+augroup cpp
+	autocmd FileType cpp setlocal tabstop=2 shiftwidth=2 expandtab
 augroup END " }}}
 
 " go {{{
