@@ -3,7 +3,6 @@ tap "homebrew/core"
 tap "homebrew/services"
 
 brew "bat"
-brew "cmake"
 brew "direnv"
 brew "dust"
 brew "exa"
