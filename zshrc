@@ -1,5 +1,11 @@
 # brew
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if [ -d /opt/homebrew ]; then
+	BREW_PREFIX=/opt/homebrew
+else
+	BREW_PREFIX=/usr/local
+fi
+
+eval "$($BREW_PREFIX/bin/brew shellenv)"
 
 # paths
 [[ :$PATH: == *:$HOME/bin:* ]] || PATH=$HOME/bin:$PATH
@@ -45,8 +51,8 @@ function git-open() { (
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
-[ -s /opt/homebrew/opt/nvm/nvm.sh ] && . /opt/homebrew/opt/nvm/nvm.sh
-[ -s /opt/homebrew/opt/nvm/etc/bash_completion.d/nvm ] && . /opt/homebrew/opt/nvm/etc/bash_completion.d/nvm
+[ -s "$BREW_PREFIX/opt/nvm/nvm.sh" ] && . "$BREW_PREFIX/opt/nvm/nvm.sh"
+[ -s "$BREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && . "$BREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm"
 
 # llvm
-export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export PATH="$BREW_PREFIX/opt/llvm/bin:$PATH"
