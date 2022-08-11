@@ -236,3 +236,8 @@ augroup END " }}}
 augroup java
 	autocmd FileType java setlocal tabstop=2 shiftwidth=2 expandtab omnifunc=javacomplete#Complete
 augroup END " }}}
+
+" lua {{{
+augroup lua
+	autocmd FileType lua setlocal shiftwidth=2 tabstop=2 expandtab
+augroup END " }}}
