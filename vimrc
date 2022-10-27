@@ -35,6 +35,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
 Plug 'yuezk/vim-js'
 Plug 'davidhalter/jedi-vim'
+Plug 'mileszs/ack.vim'
 call plug#end()
 
 filetype on
@@ -112,13 +113,14 @@ let g:ale_fix_on_save = 1
 
 " rip grep integration {{{
 if executable("rg")
-	set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
-	set grepformat=%f:%l:%c:%m,%f:%l:%m
-
 	let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
 	let g:ctrlp_use_caching = 0
 
-	command -nargs=+ -complete=file -bar Rg silent! grep! <args>|cwindow|redraw!
+	let g:ackprg = 'rg --vimgrep --type-not sql --smart-case'
+	let g:ack_autoclose = 1
+	let g:ack_use_cword_for_empty_search = 1
+	cnoreabbrev Ack Ack!
+	nnoremap <Leader>/ :Ack!<Space>
 endif
 " }}}
 
