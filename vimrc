@@ -120,7 +120,7 @@ if executable("rg")
 	let g:ack_autoclose = 1
 	let g:ack_use_cword_for_empty_search = 1
 	cnoreabbrev Ack Ack!
-	nnoremap r/ :Ack!<Space>
+	nnoremap <C-r>/ :Ack!<Space>
 endif
 " }}}
 
