@@ -76,6 +76,8 @@ let g:netrw_altv=1
 
 let g:tmuxline_powerline_separators = 0
 
+let g:rooter_patterns = ['.git']
+
 let g:jedi#popup_on_dot = 0
 let g:jedi#use_splits_not_buffers = "winwidth"
 let g:jedi#show_call_signatures = 2
