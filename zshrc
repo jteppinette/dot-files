@@ -34,6 +34,7 @@ alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:250 {
 alias vimf='vim -o "$(fzf)"'
 alias fda="fd --hidden --exclude .git --exclude .direnv --exclude __pycache__ --type f"
 alias ls="exa"
+alias du="du -A"
 
 # git
 function git-open() { (

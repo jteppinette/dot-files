@@ -76,7 +76,9 @@ let g:netrw_altv=1
 
 let g:tmuxline_powerline_separators = 0
 
-let g:rooter_patterns = ['.git']
+let g:rooter_patterns = ['>books', '>tutorials', '>playgrounds', '.git']
+
+let g:ctrlp_working_path_mode = 'w'
 
 let g:jedi#popup_on_dot = 0
 let g:jedi#use_splits_not_buffers = "winwidth"
