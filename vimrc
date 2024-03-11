@@ -36,6 +36,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'yuezk/vim-js'
 Plug 'davidhalter/jedi-vim'
 Plug 'mileszs/ack.vim'
+Plug 'tikhomirov/vim-glsl'
 call plug#end()
 
 filetype on
@@ -111,6 +112,7 @@ let g:ale_linters.javascript = ['prettier']
 let g:ale_linters.python = ['flake8', 'mypy']
 let g:ale_linters.markdown = ['write-good']
 let g:ale_linters.go = ['govet']
+let g:ale_linters.glsl = ['glslang']
 
 let g:ale_fix_on_save = 1
 " }}}}
@@ -236,6 +238,11 @@ augroup END " }}}
 " sql {{{
 augroup sql
 	autocmd FileType sql setlocal tabstop=4 shiftwidth=4
+augroup END " }}}
+
+" glsl {{{
+augroup glsl
+	autocmd FileType glsl setlocal tabstop=4 shiftwidth=4
 augroup END " }}}
 
 " java {{{
