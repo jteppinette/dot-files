@@ -45,10 +45,12 @@ filetype indent on
 
 runtime macros/matchit.vim
 
+syntax on
+
 if PlugLoaded('nord-vim')
 	colorscheme nord
+	highlight Visual cterm=reverse ctermbg=WHITE
 endif
-syntax on
 " }}}
 
 " options & variables {{{
