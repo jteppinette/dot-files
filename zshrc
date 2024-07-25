@@ -50,6 +50,11 @@ function git-open() { (
 	open $url
 ); }
 
+# gcloud
+if [ -d "$HOME/google-cloud-sdk" ]; then
+	export PATH="$HOME/google-cloud-sdk/bin:$PATH"
+fi
+
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$BREW_PREFIX/opt/nvm/nvm.sh" ] && . "$BREW_PREFIX/opt/nvm/nvm.sh"
