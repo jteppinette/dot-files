@@ -1,15 +1,15 @@
 tap "homebrew/bundle"
-tap "homebrew/core"
 tap "homebrew/services"
 
 tap "heroku/brew"
 
 brew "bat"
+brew "cmake"
 brew "conan"
 brew "direnv"
 brew "docker-compose"
 brew "dust"
-brew "exa"
+brew "eza"
 brew "fd"
 brew "flyctl"
 brew "fzf"
