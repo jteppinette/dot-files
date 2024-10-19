@@ -188,6 +188,11 @@ augroup json
 	autocmd FileType json setlocal shiftwidth=2 tabstop=2 expandtab
 augroup END " }}}
 
+" sh {{{
+augroup sh
+	autocmd FileType sh,zsh setlocal tabstop=4 shiftwidth=4
+augroup END " }}}
+
 " yaml {{{
 augroup yaml
 	autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 expandtab
