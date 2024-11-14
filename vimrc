@@ -92,6 +92,8 @@ let g:ale_fixers = {}
 let g:ale_fixers.c = ['clang-format']
 let g:ale_fixers.cpp = ['clang-format']
 let g:ale_fixers.javascript = ['prettier']
+let g:ale_fixers.typescript = ['prettier']
+let g:ale_fixers.typescriptreact = ['prettier']
 let g:ale_fixers.json = ['prettier']
 let g:ale_fixers.jsonc = ['prettier']
 let g:ale_fixers.html = ['prettier']
@@ -112,6 +114,8 @@ let g:ale_linters.java = []
 let g:ale_linters.c = ['clangtidy']
 let g:ale_linters.cpp = ['clangtidy']
 let g:ale_linters.javascript = ['prettier']
+let g:ale_linters.typescript = ['prettier', 'tsserver']
+let g:ale_linters.typescriptreact = ['prettier', 'tsserver']
 let g:ale_linters.python = ['flake8', 'mypy']
 let g:ale_linters.markdown = ['write-good']
 let g:ale_linters.go = ['govet']
@@ -156,10 +160,19 @@ augroup END " }}}
 
 " javascript {{{
 augroup javascript
-	autocmd BufNewFile,BufRead .jsx setfiletype javascript
+	autocmd BufNewFile,BufRead *.jsx set filetype=javascript
 	autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 expandtab
 	autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
 augroup END " }}}
+
+" typescript {{{
+augroup typescript
+	autocmd FileType typescript setlocal shiftwidth=2 tabstop=2 expandtab
+	autocmd FileType typescript nnoremap <buffer> <localleader>c I//<esc>
+	autocmd FileType typescriptreact setlocal shiftwidth=2 tabstop=2 expandtab
+	autocmd FileType typescriptreact nnoremap <buffer> <localleader>c I//<esc>
+augroup END " }}}
+
 
 " html {{{
 augroup html
