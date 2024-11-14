@@ -93,6 +93,7 @@ let g:ale_fixers.c = ['clang-format']
 let g:ale_fixers.cpp = ['clang-format']
 let g:ale_fixers.javascript = ['prettier']
 let g:ale_fixers.json = ['prettier']
+let g:ale_fixers.jsonc = ['prettier']
 let g:ale_fixers.html = ['prettier']
 let g:ale_fixers.css = ['prettier']
 let g:ale_fixers.scss = ['prettier']
@@ -185,7 +186,7 @@ augroup json
 	autocmd BufNewFile,BufRead .parcelrc setfiletype json
 	autocmd BufNewFile,BufRead .jsbeautifyrc setfiletype json
 	autocmd BufNewFile,BufRead .sassrc setfiletype json
-	autocmd FileType json setlocal shiftwidth=2 tabstop=2 expandtab
+	autocmd FileType json,jsonc setlocal shiftwidth=2 tabstop=2 expandtab
 augroup END " }}}
 
 " sh {{{
