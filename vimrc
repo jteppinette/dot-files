@@ -148,6 +148,11 @@ nnoremap <SPACE> <Nop>
 nnoremap <leader>n :Explore <cr>
 " }}}
 
+
+" global autocmd {{{
+	autocmd FileType * syntax sync fromstart
+" }}}
+
 " pyindent {{{
 let g:pyindent_open_paren = '&sw'
 let g:pyindent_continue = '&sw'
