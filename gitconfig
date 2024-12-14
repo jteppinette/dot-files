@@ -1,0 +1,11 @@
+[user]
+	email = josheppinette@gmail.com
+	name = Joshua Taylor Eppinette
+[init]
+	defaultBranch = main
+
+[alias]
+	conflicts = diff --name-only --diff-filter=U --relative
+
+[merge]
+	conflictstyle = zdiff3

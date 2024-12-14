@@ -17,9 +17,11 @@ fi
 brew bundle install --file=$DIR/Brewfile
 
 # configurations
+ln -sf $DIR/gitconfig $HOME/.gitconfig
 ln -sf $DIR/zshrc $HOME/.zshrc
 ln -sf $DIR/tmux.conf $HOME/.tmux.conf
-ln -sf $DIR/vimrc $HOME/.vimrc
+ln -sf $DIR/nvim.lua $HOME/.config/nvim/init.lua
+ln -sf $DIR/kitty.conf $HOME/.config/kitty/kitty.conf
 
 # tpm
 if [ ! -d $HOME/.tmux/plugins ]; then

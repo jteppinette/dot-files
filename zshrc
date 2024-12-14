@@ -1,3 +1,7 @@
+# keybindings
+bindkey '^[[1;3C' forward-word
+bindkey '^[[1;3D' backward-word
+
 # brew
 if [ -d /opt/homebrew ]; then
 	BREW_PREFIX=/opt/homebrew
@@ -39,8 +43,9 @@ eval "$(pyenv init -)"
 export FZF_DEFAULT_COMMAND="fd --type f"
 
 # aliases
+alias vim='nvim'
 alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:250 {}'"
-alias vimf='vim -o "$(fzf)"'
+alias vimf='nvim -o "$(fzf)"'
 alias fda="fd --hidden --exclude .git --exclude .direnv --exclude __pycache__ --type f"
 alias ls="eza"
 alias du="du -A"

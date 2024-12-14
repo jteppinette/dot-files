@@ -8,22 +8,14 @@
    $ ./bootstrap.sh
    ```
 
-4. [Setup Nord Terminal Theme](https://github.com/arcticicestudio/nord-terminal-app)
-5. Install Tmux Plugins
+4. Install Tmux Plugins
 
    ```
    $ tmux
    Ctrl-b I
    ```
 
-6. Install Vim Plugs
-
-   ```
-   $ vim
-   :PlugInstall
-   ```
-
-7. Set Git Config
+5. Set Git Config
 
    ```
    $ git config --global user.email jteppinette@jteppinette.com
