@@ -1,9 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, nixpkgs, ... }:
 
 {
   home.username = builtins.getEnv "USER";
   home.homeDirectory = builtins.getEnv "HOME";
-
   home.stateVersion = "24.11";
 
   home.packages = [
@@ -20,8 +19,8 @@
   ];
 
   home.sessionVariables = {
+    NIX_PATH = "nixpkgs=${nixpkgs}";
     GITHUB_TOKEN = "";
-    NIX_PATH = builtins.getEnv "NIX_PATH";
   };
 
   programs.home-manager.enable = true;
