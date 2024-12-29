@@ -7,7 +7,6 @@
 
   home.packages = [
     pkgs.borgbackup
-    pkgs.devenv
     pkgs.dust
     pkgs.google-cloud-sdk
     pkgs.procs
