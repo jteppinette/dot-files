@@ -68,15 +68,8 @@
       fda = "fd --hidden --exclude .git --exclude .direnv --exclude __pycache__ --type f";
       du = "du -A";
     };
+    defaultKeymap = "emacs";
     initExtra = ''
-      # keybindings
-      bindkey '^A' beginning-of-line
-      bindkey '^E' end-of-line
-      bindkey '^[[1;3C' forward-word
-      bindkey '^[[1;3D' backward-word
-      bindkey '^P' history-beginning-search-backward
-      bindkey '^N' history-beginning-search-forward
-
       # zsh-prompt
       autoload -Uz vcs_info
       precmd() { vcs_info }
