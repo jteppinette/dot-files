@@ -2,7 +2,7 @@ _I recently moved all of my personal developent environment configuration over t
 
 # Checklist
 
-1. [Install Nix](https://nix.dev/install-nix)
+1. [Install Nix](https://zero-to-nix.com/start/install/)
 
 2. Sync
 
