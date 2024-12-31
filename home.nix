@@ -95,7 +95,7 @@
       ); }
 
       if [ -z "$TMUX" ] && [ "$TERM" = "xterm-kitty" ]; then
-        exec tmux new-session -A -c $HOME -s home && exit;
+        tmux new-session -A -c $HOME -s home;
       fi
     '';
   };
