@@ -132,7 +132,7 @@
           set -g @catppuccin_status_modules_right "gitmux user date_time"
           set -g @catppuccin_status_left_separator "█"
           set -g @catppuccin_status_right_separator "█"
-          set -g @catppuccin_date_time_text "%Y-%m-%d %H:%M:%S"
+          set -g @catppuccin_date_time_text "%Y-%m-%d %I:%M %p"
         '';
       }
     ];
