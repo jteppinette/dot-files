@@ -8,7 +8,6 @@
   home.packages = [
     pkgs.dust
     pkgs.gitmux
-    pkgs.google-cloud-sdk
     pkgs.procs
     pkgs.reattach-to-user-namespace
     pkgs.ripgrep
