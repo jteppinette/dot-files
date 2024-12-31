@@ -6,12 +6,10 @@
   home.stateVersion = "24.11";
 
   home.packages = [
-    pkgs.borgbackup
     pkgs.dust
     pkgs.gitmux
     pkgs.google-cloud-sdk
     pkgs.procs
-    pkgs.rclone
     pkgs.reattach-to-user-namespace
     pkgs.ripgrep
     pkgs.sd
