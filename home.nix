@@ -15,10 +15,16 @@
     pkgs.ripgrep
     pkgs.sd
     pkgs.tlrc
+    pkgs.tmux-sessionizer
   ];
 
   home.file = {
     ".hushlogin".text = "";
+    ".config/tms/config.toml".text = ''
+      [[search_dirs]]
+      path = "~/Software"
+      depth = 1
+    '';
   };
 
   home.sessionVariables = {
@@ -77,14 +83,12 @@
     };
     defaultKeymap = "emacs";
     initExtra = ''
-      # zsh-prompt
       autoload -Uz vcs_info
       precmd() { vcs_info }
       zstyle ':vcs_info:git:*' formats '%b '
       setopt PROMPT_SUBST
       PROMPT='%F{green}%*%f %F{blue}%~%f %F{red}''${vcs_info_msg_0_}%f$ '
 
-      # git
       function git-open() { (
           set -e
           git remote >>/dev/null
@@ -141,6 +145,11 @@
     ];
     extraConfig = ''
       set -gu default-command
+
+      bind s display-popup -E "tms switch"
+      bind o display-popup -E "tms"
+      bind q run-shell "tms kill"
+
       bind h select-pane -L
       bind j select-pane -D
       bind k select-pane -U
