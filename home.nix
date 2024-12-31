@@ -8,6 +8,7 @@
   home.packages = [
     pkgs.borgbackup
     pkgs.dust
+    pkgs.gitmux
     pkgs.google-cloud-sdk
     pkgs.procs
     pkgs.rclone
@@ -83,11 +84,7 @@
     };
     defaultKeymap = "emacs";
     initExtra = ''
-      autoload -Uz vcs_info
-      precmd() { vcs_info }
-      zstyle ':vcs_info:git:*' formats '%b '
-      setopt PROMPT_SUBST
-      PROMPT='%F{green}%*%f %F{blue}%~%f %F{red}''${vcs_info_msg_0_}%f$ '
+      PROMPT='%F{blue}%~%f $ '
 
       function git-open() { (
           set -e
@@ -132,7 +129,7 @@
         plugin = tmuxPlugins.catppuccin;
         extraConfig = ''
           set -g @catppuccin_status_modules_left "session application"
-          set -g @catppuccin_status_modules_right "user date_time"
+          set -g @catppuccin_status_modules_right "gitmux user date_time"
           set -g @catppuccin_status_left_separator "█"
           set -g @catppuccin_status_right_separator "█"
           set -g @catppuccin_date_time_text "%Y-%m-%d %H:%M:%S"
