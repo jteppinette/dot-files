@@ -131,12 +131,8 @@
       {
         plugin = tmuxPlugins.catppuccin;
         extraConfig = ''
-          set -g @catppuccin_window_right_separator "█ "
-          set -g @catppuccin_window_number_position "right"
-          set -g @catppuccin_window_middle_separator " | "
-          set -g @catppuccin_window_default_fill "none"
-          set -g @catppuccin_window_current_fill "all"
-          set -g @catppuccin_status_modules_right "application session user date_time"
+          set -g @catppuccin_status_modules_left "session application"
+          set -g @catppuccin_status_modules_right "user date_time"
           set -g @catppuccin_status_left_separator "█"
           set -g @catppuccin_status_right_separator "█"
           set -g @catppuccin_date_time_text "%Y-%m-%d %H:%M:%S"
@@ -145,6 +141,8 @@
     ];
     extraConfig = ''
       set -gu default-command
+      set -g window-status-current-format ""
+      set -g window-status-format ""
 
       bind s display-popup -E "tms switch"
       bind o display-popup -E "tms"
