@@ -76,7 +76,7 @@
   programs.zsh = {
     enable = true;
     shellAliases = {
-      vimf = ''nvim - o "$(fzf)"'';
+      vimf = ''nvim -o "$(fzf)"'';
       fda = "fd --hidden --exclude .git --exclude .direnv --exclude __pycache__ --type f";
       du = "du -A";
     };
