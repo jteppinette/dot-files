@@ -17,6 +17,10 @@
     pkgs.tlrc
   ];
 
+  home.file = {
+    ".hushlogin".text = "";
+  };
+
   home.sessionVariables = {
     NIX_PATH = "nixpkgs=${nixpkgs}";
     GITHUB_TOKEN = "";
@@ -50,8 +54,11 @@
     shellIntegration = {
       enableZshIntegration = true;
     };
+    keybindings = { "cmd+t" = "discard_event"; };
     settings = {
+      font_size = "16.0";
       macos_option_as_alt = "yes";
+      tab_bar_style = "hidden";
     };
   };
 
@@ -86,6 +93,10 @@
           echo "git: opening $remote $url"
           open $url
       ); }
+
+      if [ -z "$TMUX" ] && [ "$TERM" = "xterm-kitty" ]; then
+        exec tmux new-session -A -c $HOME -s home && exit;
+      fi
     '';
   };
 
@@ -108,18 +119,28 @@
     terminal = "screen-256color";
     shell = "${pkgs.zsh}/bin/zsh";
     plugins = with pkgs; [
-      tmuxPlugins.catppuccin
       tmuxPlugins.yank
       tmuxPlugins.sensible
       tmuxPlugins.open
       tmuxPlugins.resurrect
+      tmuxPlugins.continuum
       {
-        plugin = tmuxPlugins.continuum;
-        extraConfig = "set -g @continuum-restore 'on'";
+        plugin = tmuxPlugins.catppuccin;
+        extraConfig = ''
+          set -g @catppuccin_window_right_separator "█ "
+          set -g @catppuccin_window_number_position "right"
+          set -g @catppuccin_window_middle_separator " | "
+          set -g @catppuccin_window_default_fill "none"
+          set -g @catppuccin_window_current_fill "all"
+          set -g @catppuccin_status_modules_right "application session user date_time"
+          set -g @catppuccin_status_left_separator "█"
+          set -g @catppuccin_status_right_separator "█"
+          set -g @catppuccin_date_time_text "%Y-%m-%d %H:%M:%S"
+        '';
       }
     ];
     extraConfig = ''
-      set-option -g default-command "reattach-to-user-namespace -l ${pkgs.zsh}/bin/zsh"
+      set -gu default-command
       bind h select-pane -L
       bind j select-pane -D
       bind k select-pane -U
