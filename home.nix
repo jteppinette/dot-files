@@ -1,20 +1,29 @@
-{ pkgs, nixpkgs, ... }:
+{ pkgs, nixpkgs, user, home, ... }:
 
 {
-  home.username = builtins.getEnv "USER";
-  home.homeDirectory = builtins.getEnv "HOME";
+  targets.genericLinux.enable = pkgs.stdenv.isLinux;
+
+  home.username = user;
+  home.homeDirectory = home;
   home.stateVersion = "24.11";
 
   home.packages = [
+    pkgs.curl
     pkgs.dust
     pkgs.gitmux
+    pkgs.gnumake
+    pkgs.llvmPackages.libcxxClang
     pkgs.procs
-    pkgs.reattach-to-user-namespace
+    pkgs.python3
     pkgs.ripgrep
     pkgs.sd
     pkgs.tlrc
     pkgs.tmux-sessionizer
-  ];
+  ] ++ (
+    pkgs.lib.optionals pkgs.stdenv.isDarwin [
+      pkgs.reattach-to-user-namespace
+    ]
+  );
 
   home.file = {
     ".hushlogin".text = "";
