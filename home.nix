@@ -13,6 +13,7 @@
     pkgs.gitmux
     pkgs.gnumake
     pkgs.llvmPackages.libcxxClang
+    pkgs.pkg-config
     pkgs.procs
     pkgs.python3
     pkgs.ripgrep
