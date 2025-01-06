@@ -8,12 +8,12 @@
     mac-app-util.url = "github:hraban/mac-app-util/548672d0cb661ce11d08ee8bde92b87d2a75c872";
 
     system-manager = {
-      url = "github:numtide/system-manager?rev=c9e35e9b7d698533a32c7e34dfdb906e1e0b7d0a";
+      url = "github:numtide/system-manager/c9e35e9b7d698533a32c7e34dfdb906e1e0b7d0a";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nix-system-graphics = {
-      url = "github:soupglasses/nix-system-graphics?rev=5a8d749e977090c7f8c5b920b13262174b2d7b55";
+      url = "github:soupglasses/nix-system-graphics/5a8d749e977090c7f8c5b920b13262174b2d7b55";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
