@@ -5,6 +5,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     flake-utils.url = "github:numtide/flake-utils";
 
+    mac-app-util.url = "github:hraban/mac-app-util/548672d0cb661ce11d08ee8bde92b87d2a75c872";
+
     system-manager = {
       url = "github:numtide/system-manager?rev=c9e35e9b7d698533a32c7e34dfdb906e1e0b7d0a";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -21,7 +23,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, system-manager, nix-system-graphics, flake-utils, ... }:
+  outputs = { nixpkgs, home-manager, system-manager, nix-system-graphics, flake-utils, mac-app-util, ... }:
 
     flake-utils.lib.eachSystem [ "aarch64-linux" "x86_64-linux" ]
       (system: {
@@ -52,7 +54,10 @@
           {
             inherit pkgs;
 
-            modules = [ ./home.nix ];
+            modules = [
+              mac-app-util.homeManagerModules.default
+              ./home.nix
+            ];
             extraSpecialArgs = {
               inherit nixpkgs user home;
             };
