@@ -54,10 +54,9 @@
           {
             inherit pkgs;
 
-            modules = [
+            modules = pkgs.lib.optionals pkgs.stdenv.isDarwin [
               mac-app-util.homeManagerModules.default
-              ./home.nix
-            ];
+            ] ++ [ ./home.nix ];
             extraSpecialArgs = {
               inherit nixpkgs user home;
             };
