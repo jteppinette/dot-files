@@ -151,6 +151,7 @@
       bind s display-popup -E "tms switch"
       bind o display-popup -E "tms"
       bind q run-shell "tms kill"
+      bind n command-prompt -p "init repo:" "run-shell 'tms init-repo %1'"
 
       bind h select-pane -L
       bind j select-pane -D
