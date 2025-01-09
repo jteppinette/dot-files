@@ -2,10 +2,14 @@ _I recently moved all of my personal developent environment configuration over t
 
 # Checklist
 
-1. [Install Nix](https://zero-to-nix.com/start/install/)
+1. Add ssh keys
 
-2. Sync
+2. [Install Nix](https://zero-to-nix.com/start/install/)
+
+3. Sync
 
    ```
    $ ./sync.sh
    ```
+
+4. Set zsh as default shell
