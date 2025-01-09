@@ -7,7 +7,6 @@ vim.g.loaded_netrw = 1
 
 -- [[ Options ]]
 
-vim.opt.tabstop = 4
 vim.opt.number = true
 vim.opt.mouse = "a"
 vim.opt.showmode = false
@@ -68,12 +67,16 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
+-- [[ Filetype Overrides ]]
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "nix",
+	command = "setlocal shiftwidth=2 softtabstop=2 expandtab",
+})
+
 -- [[ Configure & Install Plugins ]]
 
 require("lazy").setup({
-
-	-- Detect tabstop and shiftwidth automatically
-	"tpope/vim-sleuth",
 
 	{ -- Adds git related signs to the gutter, as well as utilities for managing changes
 		"lewis6991/gitsigns.nvim",
