@@ -211,6 +211,7 @@ require("lazy").setup({
 			-- You can find the list of all supported servers [here](https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md). In a buffer, you can see the current LSP status with :LspInfo.
 			local servers = {
 				clangd = {},
+				gopls = {},
 				nixd = {},
 				taplo = {},
 				lua_ls = { Lua = { diagnostics = { globals = { "vim" } } } },
@@ -242,23 +243,26 @@ require("lazy").setup({
 		"stevearc/conform.nvim",
 		event = { "BufWritePre" },
 		cmd = { "ConformInfo" },
-		opts = {
-			format_on_save = {
-				timeout_ms = 500,
-				lsp_format = "fallback",
-			},
-			formatters_by_ft = {
-				html = { "prettierd" },
-				javascript = { "prettierd" },
-				javascriptreact = { "prettierd" },
-				json = { "prettierd" },
-				lua = { "stylua" },
-				python = { "isort", "black" },
-				sh = { "shfmt" },
-				typescript = { "prettierd" },
-				typescriptreact = { "prettierd" },
-			},
-		},
+		config = function()
+			local prettier = { "prettierd", "prettier", stop_after_first = true }
+			require("conform").setup({
+				format_on_save = {
+					timeout_ms = 500,
+					lsp_format = "fallback",
+				},
+				formatters_by_ft = {
+					html = prettier,
+					javascript = prettier,
+					javascriptreact = prettier,
+					json = prettier,
+					lua = { "stylua" },
+					python = { "isort", "black" },
+					sh = { "shfmt" },
+					typescript = prettier,
+					typescriptreact = prettier,
+				},
+			})
+		end,
 	},
 
 	{ -- Auto complete

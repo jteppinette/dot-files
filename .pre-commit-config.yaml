@@ -35,19 +35,19 @@ repos:
       - id: nixfmt
         name: nixfmt
         language: system
-        entry: nixfmt --verify
+        entry: nixfmt --check
         types_or: [nix]
 
       - id: stylua
         name: stylua
         language: system
-        entry: stylua --verify
+        entry: stylua --check
         types_or: [lua]
 
       - id: shfmt
         name: shfmt
         language: system
-        entry: test ! -n "$(shfmt --write --list)"
+        entry: shfmt --check
         types_or: [sh]
 
       - id: nix flake check
