@@ -70,12 +70,7 @@ vim.opt.rtp:prepend(lazypath)
 -- [[ Filetype Overrides ]]
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = "nix",
-	command = "setlocal shiftwidth=2 softtabstop=2 expandtab",
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "json",
+	pattern = { "nix", "json", "c", "cpp" },
 	command = "setlocal shiftwidth=2 softtabstop=2 expandtab",
 })
 
@@ -235,6 +230,7 @@ require("lazy").setup({
 			local capabilities = vim.tbl_deep_extend("force", native_capabilities, cmp_capabilities)
 
 			local servers = {
+				clangd = {},
 				nil_ls = {},
 				taplo = {},
 				ts_ls = { settings = { completions = {
@@ -297,15 +293,17 @@ require("lazy").setup({
 				lsp_format = "fallback",
 			},
 			formatters_by_ft = {
-				lua = { "stylua" },
-				typescript = { "prettierd" },
-				typescriptreact = { "prettierd" },
-				json = { "prettierd" },
+				c = { "clang-format" },
+				cpp = { "clang-format" },
+				html = { "prettierd" },
 				javascript = { "prettierd" },
 				javascriptreact = { "prettierd" },
-				html = { "prettierd" },
-				python = { "isort", "black" },
+				json = { "prettierd" },
+				lua = { "stylua" },
 				nix = { "nixpkgs_fmt" },
+				python = { "isort", "black" },
+				typescript = { "prettierd" },
+				typescriptreact = { "prettierd" },
 			},
 		},
 	},
