@@ -74,6 +74,11 @@ vim.api.nvim_create_autocmd("FileType", {
 	command = "setlocal shiftwidth=2 softtabstop=2 expandtab",
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "json",
+	command = "setlocal shiftwidth=2 softtabstop=2 expandtab",
+})
+
 -- [[ Configure & Install Plugins ]]
 
 require("lazy").setup({
