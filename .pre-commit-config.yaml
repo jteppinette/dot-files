@@ -1,0 +1,58 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-ast
+      - id: check-builtin-literals
+      - id: check-case-conflict
+      - id: check-docstring-first
+      - id: check-executables-have-shebangs
+      - id: check-illegal-windows-names
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-shebang-scripts-are-executable
+      - id: check-symlinks
+      - id: check-toml
+      - id: check-vcs-permalinks
+      - id: check-xml
+      - id: check-yaml
+      - id: debug-statements
+      - id: destroyed-symlinks
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: fix-byte-order-marker
+      - id: forbid-submodules
+      - id: mixed-line-ending
+      - id: name-tests-test
+      - id: pretty-format-json
+      - id: requirements-txt-fixer
+      - id: trailing-whitespace
+
+  - repo: local
+    hooks:
+
+      - id: nixfmt
+        name: nixfmt
+        language: system
+        entry: nixfmt --verify
+        types_or: [nix]
+
+      - id: stylua
+        name: stylua
+        language: system
+        entry: stylua --verify
+        types_or: [lua]
+
+      - id: shfmt
+        name: shfmt
+        language: system
+        entry: test ! -n "$(shfmt --write --list)"
+        types_or: [sh]
+
+      - id: nix flake check
+        name: nix flake check
+        language: system
+        entry: nix flake check --all-systems --impure
+        files: '^flake.lock$|^\.nix$'
+        pass_filenames: false

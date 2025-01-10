@@ -10,14 +10,26 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, home-manager, system-manager, nix-system-graphics, mac-app-util, ... }:
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      system-manager,
+      nix-system-graphics,
+      mac-app-util,
+      ...
+    }:
     let
       pkgs = nixpkgs.legacyPackages.${builtins.currentSystem};
       user = "jteppinette";
-      home = with pkgs.stdenv;
-        if isLinux then "/home/${user}"
-        else if isDarwin then "/Users/${user}"
-        else throw "unsupported system: ${system}";
+      home =
+        with pkgs.stdenv;
+        if isLinux then
+          "/home/${user}"
+        else if isDarwin then
+          "/Users/${user}"
+        else
+          throw "unsupported system: ${system}";
     in
     {
       systemConfigs.default = system-manager.lib.makeSystemConfig {
@@ -30,16 +42,26 @@
         ];
       };
 
-      homeConfigurations.${user} = home-manager.lib.homeManagerConfiguration
-        {
-          inherit pkgs;
+      homeConfigurations.${user} = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
 
-          modules = pkgs.lib.optionals pkgs.stdenv.isDarwin [
+        modules =
+          pkgs.lib.optionals pkgs.stdenv.isDarwin [
             mac-app-util.homeManagerModules.default
-          ] ++ [ ./home.nix ];
-          extraSpecialArgs = {
-            inherit nixpkgs user home;
-          };
+          ]
+          ++ [ ./home.nix ];
+        extraSpecialArgs = {
+          inherit nixpkgs user home;
         };
+      };
+
+      devShells.${builtins.currentSystem}.default = pkgs.mkShell {
+        packages = [
+          pkgs.nixfmt-rfc-style
+          pkgs.pre-commit
+          pkgs.shfmt
+          pkgs.stylua
+        ];
+      };
     };
 }

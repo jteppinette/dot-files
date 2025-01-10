@@ -1,4 +1,10 @@
-{ pkgs, nixpkgs, user, home, ... }:
+{
+  pkgs,
+  nixpkgs,
+  user,
+  home,
+  ...
+}:
 
 {
   targets.genericLinux.enable = pkgs.stdenv.isLinux;
@@ -7,24 +13,40 @@
   home.homeDirectory = home;
   home.stateVersion = "24.11";
 
-  home.packages = [
-    pkgs.curl
-    pkgs.dust
-    pkgs.gitmux
-    pkgs.gnumake
-    pkgs.llvmPackages.libcxxClang
-    pkgs.pkg-config
-    pkgs.procs
-    pkgs.python3
-    pkgs.ripgrep
-    pkgs.sd
-    pkgs.tlrc
-    pkgs.tmux-sessionizer
-  ] ++ (
-    pkgs.lib.optionals pkgs.stdenv.isDarwin [
-      pkgs.reattach-to-user-namespace
+  home.packages =
+    [
+      # utilities
+      pkgs.curl
+      pkgs.dust
+      pkgs.procs
+      pkgs.ripgrep
+      pkgs.sd
+      pkgs.tlrc
+
+      # terminal
+      pkgs.gitmux
+      pkgs.tmux-sessionizer
+
+      # languages
+      pkgs.llvmPackages.libcxxClang
+      pkgs.python312
+
+      # lsp
+      pkgs.clang-tools
+      pkgs.lua-language-server
+      pkgs.nixd
+      pkgs.python312Packages.python-lsp-server
+      pkgs.taplo
+      pkgs.typescript-language-server
+
+      # build
+      pkgs.gnumake
+      pkgs.pkg-config
+
     ]
-  );
+    ++ (pkgs.lib.optionals pkgs.stdenv.isDarwin [
+      pkgs.reattach-to-user-namespace
+    ]);
 
   home.file = {
     ".hushlogin".text = "";
@@ -50,7 +72,10 @@
     enable = true;
     defaultEditor = true;
     extraLuaConfig = builtins.readFile ./nvim.lua;
-    extraPackages = [ pkgs.cargo pkgs.yarn ];
+    extraPackages = [
+      pkgs.cargo
+      pkgs.yarn
+    ];
     withNodeJs = true;
     viAlias = true;
     vimAlias = true;
@@ -68,7 +93,9 @@
     shellIntegration = {
       enableZshIntegration = true;
     };
-    keybindings = { "cmd+t" = "discard_event"; };
+    keybindings = {
+      "cmd+t" = "discard_event";
+    };
     settings = {
       font_size = "16.0";
       macos_option_as_alt = "yes";
@@ -79,7 +106,10 @@
   programs.fzf = {
     enable = true;
     defaultCommand = "fd --type f";
-    defaultOptions = [ "--preview" "'bat --color=always --style=numbers --line-range=:250 {}'" ];
+    defaultOptions = [
+      "--preview"
+      "'bat --color=always --style=numbers --line-range=:250 {}'"
+    ];
   };
 
   programs.zsh = {
@@ -116,8 +146,12 @@
       conflicts = "diff --name-only --diff-filter=U --relative";
     };
     extraConfig = {
-      merge = { conflictstyle = "zdiff3"; };
-      init = { defaultBranch = "main"; };
+      merge = {
+        conflictstyle = "zdiff3";
+      };
+      init = {
+        defaultBranch = "main";
+      };
     };
   };
 

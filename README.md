@@ -1,6 +1,6 @@
-_I recently moved all of my personal developent environment configuration over to Nix. Instead of many dot files, there is a `home.nix` and supporting files. Let me know if you have any questions._
+_This repo contains the Nix configuration for my MacOS and Linux machines. Follow the documentation below to get started._
 
-# Checklist
+# Getting Started
 
 1. Add ssh keys
 
@@ -13,3 +13,20 @@ _I recently moved all of my personal developent environment configuration over t
    ```
 
 4. Set zsh as default shell
+
+# Development
+
+Once you have the environment setup, you can use the `devShells` support via direnv to manage the development environment for this project.
+
+**Setup**
+
+```sh
+$ direnv allow
+$ pre-commit install
+```
+
+**Precommit**
+
+```sh
+$ pre-commit run --all
+```
