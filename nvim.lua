@@ -72,7 +72,7 @@ vim.opt.rtp:prepend(lazypath)
 -- [[ Filetype Overrides ]]
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "nix", "json", "c", "cpp" },
+	pattern = { "nix", "json", "javascript", "c", "cpp" },
 	command = "setlocal shiftwidth=2 softtabstop=2 expandtab",
 })
 
