@@ -76,6 +76,14 @@ vim.api.nvim_create_autocmd("FileType", {
 	command = "setlocal shiftwidth=2 softtabstop=2 expandtab",
 })
 
+-- [[ User Commands ]]
+vim.api.nvim_create_user_command("ConformDisable", function()
+	vim.b.conform_disable = true
+end, { desc = "Disable autoformat-on-save" })
+vim.api.nvim_create_user_command("ConformEnable", function()
+	vim.b.conform_disable = false
+end, { desc = "Re-enable autoformat-on-save" })
+
 -- [[ Configure & Install Plugins ]]
 
 require("lazy").setup({
@@ -246,10 +254,15 @@ require("lazy").setup({
 		config = function()
 			local prettier = { "prettierd", "prettier", stop_after_first = true }
 			require("conform").setup({
-				format_on_save = {
-					timeout_ms = 500,
-					lsp_format = "fallback",
-				},
+				format_on_save = function(n)
+					if vim.b[n].conform_disable then
+						return
+					end
+					return {
+						timeout_ms = 500,
+						lsp_format = "fallback",
+					}
+				end,
 				formatters_by_ft = {
 					html = prettier,
 					javascript = prettier,
