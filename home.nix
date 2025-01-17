@@ -15,6 +15,9 @@
 
   home.packages =
     [
+      # formatters
+      pkgs.nixfmt-rfc-style
+
       # utilities
       pkgs.curl
       pkgs.dust

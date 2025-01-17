@@ -269,6 +269,7 @@ require("lazy").setup({
 					javascriptreact = prettier,
 					json = prettier,
 					lua = { "stylua" },
+					markdown = prettier,
 					python = { "isort", "black" },
 					sh = { "shfmt" },
 					typescript = prettier,
