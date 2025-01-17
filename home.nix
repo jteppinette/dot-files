@@ -70,6 +70,7 @@
   programs.fd.enable = true;
   programs.bat.enable = true;
   programs.jq.enable = true;
+  programs.nix-index.enable = true;
 
   programs.neovim = {
     enable = true;
