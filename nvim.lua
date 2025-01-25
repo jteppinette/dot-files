@@ -71,8 +71,15 @@ vim.opt.rtp:prepend(lazypath)
 
 -- [[ Filetype Overrides ]]
 
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+	pattern = { "user-data", "meta-data" },
+	callback = function()
+		vim.bo.filetype = "yaml"
+	end,
+})
+
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "nix", "json", "javascript", "c", "cpp" },
+	pattern = { "nix", "json", "javascript", "c", "cpp", "markdown" },
 	command = "setlocal shiftwidth=2 softtabstop=2 expandtab",
 })
 
