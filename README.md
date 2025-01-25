@@ -35,3 +35,4 @@ $ pre-commit run --all
 
 - [https://github.com/mrkuz/macos-config](https://github.com/mrkuz/macos-config)
 - [https://github.com/dustinlyons/nixos-config](https://github.com/dustinlyons/nixos-config)
+- [https://nixcademy.com/posts/macos-linux-builder/](https://nixcademy.com/posts/macos-linux-builder/)
