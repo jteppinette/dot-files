@@ -1,6 +1,5 @@
 {
   pkgs,
-  nixpkgs,
   user,
   home,
   ...
@@ -58,11 +57,6 @@
       path = "~/Software"
       depth = 1
     '';
-  };
-
-  home.sessionVariables = {
-    NIX_PATH = "nixpkgs=${nixpkgs}";
-    GITHUB_TOKEN = "";
   };
 
   programs.home-manager.enable = true;
