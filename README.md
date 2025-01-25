@@ -30,3 +30,8 @@ $ pre-commit install
 ```sh
 $ pre-commit run --all
 ```
+
+# References
+
+- [https://github.com/mrkuz/macos-config](https://github.com/mrkuz/macos-config)
+- [https://github.com/dustinlyons/nixos-config](https://github.com/dustinlyons/nixos-config)
