@@ -24,6 +24,7 @@
       };
     };
     settings = {
+      sandbox = true;
       trusted-users = [ "@admin" ];
       experimental-features = "nix-command flakes";
     };
