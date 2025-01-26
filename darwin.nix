@@ -13,6 +13,15 @@
         "aarch64-linux"
       ];
       ephemeral = true;
+      config = {
+        virtualisation = {
+          darwin-builder = {
+            diskSize = 50 * 1024;
+            memorySize = 8 * 1024;
+          };
+          cores = 4;
+        };
+      };
     };
     settings = {
       trusted-users = [ "@admin" ];
