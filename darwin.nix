@@ -6,6 +6,9 @@
 }:
 {
   nix = {
+    optimise.automatic = true;
+    gc.automatic = true;
+
     linux-builder = {
       enable = true;
       systems = [
@@ -23,6 +26,7 @@
         };
       };
     };
+
     settings = {
       sandbox = true;
       trusted-users = [ "@admin" ];
