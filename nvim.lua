@@ -79,7 +79,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "nix", "json", "javascript", "c", "cpp", "markdown" },
+	pattern = { "nix", "json", "typescript", "javascript", "c", "cpp", "markdown" },
 	command = "setlocal shiftwidth=2 softtabstop=2 expandtab",
 })
 
