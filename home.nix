@@ -21,6 +21,7 @@
       pkgs.curl
       pkgs.dust
       pkgs.procs
+      pkgs.rename
       pkgs.ripgrep
       pkgs.sd
       pkgs.tlrc
