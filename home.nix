@@ -20,11 +20,13 @@
       # utilities
       pkgs.curl
       pkgs.dust
+      pkgs.httpie
       pkgs.procs
       pkgs.rename
       pkgs.ripgrep
       pkgs.sd
       pkgs.tlrc
+      pkgs.tree
 
       # terminal
       pkgs.gitmux
