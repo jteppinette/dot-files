@@ -384,6 +384,12 @@ require("lazy").setup({
 		end,
 	},
 
+	{ -- Better Quick Fix
+		"kevinhwang91/nvim-bqf",
+		ft = "qf",
+		opts = {},
+	},
+
 	{ -- Highlight, Edit, Navigate
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
