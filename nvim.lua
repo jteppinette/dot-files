@@ -78,8 +78,16 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	end,
 })
 
+-- [[ EXPAND 4 ]]
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "php" },
+	command = "setlocal shiftwidth=4 softtabstop=4 expandtab",
+})
+
+-- [[ EXPAND 2 ]]
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = {
+		"phtml",
 		"nix",
 		"json",
 		"typescript",
@@ -239,6 +247,7 @@ require("lazy").setup({
 				clangd = {},
 				gopls = {},
 				nixd = {},
+				phpactor = {},
 				taplo = {},
 				lua_ls = { Lua = { diagnostics = { globals = { "vim" } } } },
 				pylsp = {
@@ -287,6 +296,7 @@ require("lazy").setup({
 					javascriptreact = prettier,
 					json = prettier,
 					lua = { "stylua" },
+					php = { "php_cs_fixer" },
 					markdown = prettier,
 					python = { "isort", "black" },
 					sh = { "shfmt" },
