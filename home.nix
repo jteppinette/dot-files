@@ -21,6 +21,7 @@
       pkgs.curl
       pkgs.dust
       pkgs.httpie
+      pkgs.procps
       pkgs.procs
       pkgs.rename
       pkgs.ripgrep
@@ -43,6 +44,7 @@
       pkgs.python312Packages.python-lsp-server
       pkgs.taplo
       pkgs.typescript-language-server
+      pkgs.phpactor
 
       # build
       pkgs.gnumake
