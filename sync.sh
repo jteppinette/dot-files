@@ -9,7 +9,7 @@ system_darwin() {
 	if ! command -v darwin-rebuild; then
 		nix run --extra-experimental-features nix-command flakes nix-darwin/nix-darwin-24.11 -- switch --flake "." --impure
 	else
-		darwin-rebuild switch --flake "." --impure
+		darwin-rebuild switch --flake "." --impure --option sandbox false
 	fi
 }
 
