@@ -39,6 +39,7 @@
 
       # lsp
       pkgs.clang-tools
+      pkgs.haskell-language-server
       pkgs.lua-language-server
       pkgs.nixd
       pkgs.python312Packages.python-lsp-server

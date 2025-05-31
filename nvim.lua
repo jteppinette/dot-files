@@ -246,6 +246,7 @@ require("lazy").setup({
 			local servers = {
 				clangd = {},
 				gopls = {},
+				hls = {},
 				nixd = {},
 				phpactor = {},
 				taplo = {},
@@ -291,6 +292,7 @@ require("lazy").setup({
 					}
 				end,
 				formatters_by_ft = {
+					haskell = { "ormolu" },
 					html = prettier,
 					javascript = prettier,
 					javascriptreact = prettier,
