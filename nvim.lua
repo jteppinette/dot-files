@@ -87,6 +87,7 @@ vim.api.nvim_create_autocmd("FileType", {
 -- [[ EXPAND 2 ]]
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = {
+		"haskell",
 		"phtml",
 		"nix",
 		"json",
@@ -292,7 +293,6 @@ require("lazy").setup({
 					}
 				end,
 				formatters_by_ft = {
-					haskell = { "ormolu" },
 					html = prettier,
 					javascript = prettier,
 					javascriptreact = prettier,
