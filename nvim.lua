@@ -16,6 +16,8 @@ vim.opt.breakindent = true
 vim.opt.undofile = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+vim.opt.smartindent = true
+vim.opt.autoindent = true
 vim.opt.signcolumn = "yes"
 vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300
@@ -88,6 +90,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = {
 		"haskell",
+		"cabal",
 		"phtml",
 		"nix",
 		"json",
@@ -247,7 +250,7 @@ require("lazy").setup({
 			local servers = {
 				clangd = {},
 				gopls = {},
-				hls = {},
+				hls = { filetypes = { "haskell", "lhaskell", "cabal" } },
 				nixd = {},
 				phpactor = {},
 				taplo = {},
@@ -294,6 +297,8 @@ require("lazy").setup({
 				end,
 				formatters_by_ft = {
 					html = prettier,
+					cabal = { "cabal_fmt" },
+					lisp = { "cljfmt" },
 					javascript = prettier,
 					javascriptreact = prettier,
 					json = prettier,
@@ -416,5 +421,13 @@ require("lazy").setup({
 		dependencies = {
 			{ "nvim-treesitter/nvim-treesitter-context", opts = { max_lines = 5, multiline_threshold = 1 } },
 		},
+	},
+
+	{ -- Parentheses Inference
+		"gpanders/nvim-parinfer",
+		ft = "lisp",
+		config = function()
+			vim.cmd("ParinferOn")
+		end,
 	},
 }, {})
